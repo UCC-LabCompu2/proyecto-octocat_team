@@ -1,0 +1,52 @@
+body{
+    text-align: center;
+    /*background-image: linear-gradient(to right,orange,orangered);*/
+    background-color: orange;
+}
+.Titulo{
+    padding: 20px 20%;
+    margin: 30px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    background-color: coral;
+}
+.Intro{
+    text-align: left;
+    padding: 20px 2%;
+    margin: 30px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    background-color: coral;
+}
+.Selecciones{
+    padding: 10px 10%;
+    margin: 30px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    background-color: coral;
+
+}
+.Op1{
+    float: left;
+    padding: 10px 10%;
+    margin: 10px;
+    border: 2px solid orange;
+}
+.Op2{
+    float: left;
+    padding: 10px 10%;
+    margin: 10px;
+    border: 2px solid orange;
+}
+.Op4{
+    float: inside;
+    padding: 10px 10%;
+    margin: 10px;
+    border: 2px solid orange;
+}
+.Op3{
+    float: end;
+    padding: 10px 10%;
+    margin: 10px;
+    border: 2px solid orange;
+}
