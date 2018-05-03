@@ -1,0 +1,45 @@
+body{
+    text-align: center;
+    background-color: cornflowerblue;
+}
+.Titulo{
+    padding: 20px 20%;
+    margin: 30px;
+    border: 2px solid darkblue;
+    border-radius: 20px;
+    background-color: dodgerblue;
+}
+.Intro{
+    text-align: left;
+    padding: 20px 2%;
+    margin: 30px;
+    border: 2px solid orangered;
+    border-radius: 20px;
+    background-color: coral;
+}
+.Selecciones{
+    /*width: 100%;*/
+    /*padding: 10px 10%;
+    margin: 30px;*/
+    border: 2px solid orangered;
+    border-radius: 20px;
+    background-color: coral;
+    white-space: nowrap;
+    overflow: scroll;
+}
+.Selecciones > div{
+    padding: 10px 10%;
+    margin: 10px;
+    width: 5%;
+    border: 2px solid orange;
+    border-radius: 20px;
+    display: inline-block;
+}
+.Op1{
+}
+.Op2{
+}
+.Op4{
+}
+.Op3{
+}

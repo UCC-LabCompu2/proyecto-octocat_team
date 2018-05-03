@@ -1,14 +1,13 @@
 body{
     text-align: center;
-    /*background-image: linear-gradient(to right,orange,orangered);*/
-    background-color: orange;
+    background-color: cornflowerblue;
 }
 .Titulo{
     padding: 20px 20%;
     margin: 30px;
-    border: 2px solid orangered;
+    border: 2px solid darkblue;
     border-radius: 20px;
-    background-color: coral;
+    background-color: dodgerblue;
 }
 .Intro{
     text-align: left;
@@ -19,34 +18,28 @@ body{
     background-color: coral;
 }
 .Selecciones{
-    padding: 10px 10%;
-    margin: 30px;
+    /*width: 100%;*/
+    /*padding: 10px 10%;
+    margin: 30px;*/
     border: 2px solid orangered;
     border-radius: 20px;
     background-color: coral;
-
+    white-space: nowrap;
+    overflow: scroll;
+}
+.Selecciones > div{
+    padding: 10px 10%;
+    margin: 10px;
+    width: 5%;
+    border: 2px solid orange;
+    border-radius: 20px;
+    display: inline-block;
 }
 .Op1{
-    float: left;
-    padding: 10px 10%;
-    margin: 10px;
-    border: 2px solid orange;
 }
 .Op2{
-    float: left;
-    padding: 10px 10%;
-    margin: 10px;
-    border: 2px solid orange;
 }
 .Op4{
-    float: inside;
-    padding: 10px 10%;
-    margin: 10px;
-    border: 2px solid orange;
 }
 .Op3{
-    float: end;
-    padding: 10px 10%;
-    margin: 10px;
-    border: 2px solid orange;
 }
