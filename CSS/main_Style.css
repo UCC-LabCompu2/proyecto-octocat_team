@@ -1,9 +1,5 @@
 body{
     text-align: center;
-<<<<<<< HEAD
-    /*background-image: linear-gradient(to right,orange,orangered);*/
-=======
->>>>>>> 79cdcbdaf61881ce5a5b3b60904b053745bae8e3
     background-color: cornflowerblue;
 }
 .Titulo{
@@ -13,32 +9,47 @@ body{
     border-radius: 20px;
     background-color: dodgerblue;
 }
-.Intro{
-    text-align: left;
-    padding: 20px 2%;
+
+.Cuerpo{
+    border: 2px solid darkblue;
+    border-radius: 20px;
+    padding: 10px 5%;
     margin: 30px;
-    border: 2px solid orangered;
-    border-radius: 20px;
-    background-color: coral;
-}
-.Selecciones{
-    /*width: 100%;*/
-    /*padding: 10px 10%;
-    margin: 30px;*/
-    border: 2px solid orangered;
-    border-radius: 20px;
-    background-color: coral;
     white-space: nowrap;
     overflow: scroll;
 }
-.Selecciones > div{
-    padding: 10px 10%;
-    margin: 10px;
-    width: 5%;
+.Selecciones{
+    display: inline-block;
+    width: 10%;
+    float: left;
+    padding: 10px 5%;
+    margin: 30px;
+    border: 2px solid darkblue;
+    border-radius: 20px;
+    background-color: dodgerblue;
+}
+.Intro{
+    display: inline-block;
+    text-align: justify;
+    padding: 20px 2%;
+    margin: 30px;
+    border: 2px solid darkblue;
+    border-radius: 20px;
+    background-color: dodgerblue;
+}
+.Selecciones > button{
+    display: list-item;
+    background-color: lightskyblue;
+    font-size: large;
+    padding: 10px 5%;
+    margin: 5px;
     border: 2px solid orange;
     border-radius: 20px;
-    display: inline-block;
 }
+button{
+    /*background-color: lightskyblue;*/
+}
+
 .Op1{
 }
 .Op2{
