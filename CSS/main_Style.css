@@ -14,27 +14,37 @@ body{
     /*padding: 20px;*/
     height: 100%;
     width: 97.2%;
+    min-height: 360px;
+    min-width: 480px;
     padding: 2.451% 1.388%;
-    background-color: mediumvioletred;
+    background-color: dodgerblue;
 }
 .Titulo{
     float: right;
     padding: 1.225% 0.694%;
     height: 3.86%;
     width: 77%;
-    background-color: aliceblue;
+    background-color: cornflowerblue;
+    border: 2px solid orange;
+    border-radius: 20px;
 }
 .Intro{
     margin-top: 1.225%;
     padding: 1.225% 0.694%;
     float: right;
     width: 77%;
-    background-color: orangered;
+    min-height: 90px;
+    background-color: cornflowerblue;
+    border: 2px solid orange;
+    border-radius: 20px;
 }
 .Selecciones{
     alignment: center;
     width: 21%;
     height: 96.6%;
+    /*padding: 2.450% 1.388%;*/
+    padding-top: 1%;
+    padding-bottom: 1%;
     background-color: dodgerblue;
 }
 .Selecciones > button{
@@ -42,7 +52,7 @@ body{
     background-color: lightskyblue;
     font-size: large;
     padding: 2% 1%;
-    margin: 2%;
+    margin: 2% 5%;
     border: 2px solid orange;
     border-radius: 20px;
     width: 90%;
