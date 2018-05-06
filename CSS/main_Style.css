@@ -9,41 +9,43 @@ body{
 }
 .general{
     margin: auto;
-    padding: 20px;
+    /*height: 816px;
+    width: 1440px;
+    /*padding: 20px;*/
+    height: 100%;
+    width: 97.2%;
+    padding: 2.451% 1.388%;
     background-color: mediumvioletred;
 }
 .Titulo{
     float: right;
-    padding: 10px;
-    height: 30px;
-    width: 1070px;
+    padding: 1.225% 0.694%;
+    height: 3.86%;
+    width: 77%;
     background-color: aliceblue;
 }
 .Intro{
-    margin-top: 10px;
-    padding: 20px;
+    margin-top: 1.225%;
+    padding: 1.225% 0.694%;
     float: right;
-    width: 1050px;
+    width: 77%;
     background-color: orangered;
 }
 .Selecciones{
     alignment: center;
-    width: 300px;
-    height: 500px;
+    width: 21%;
+    height: 96.6%;
     background-color: dodgerblue;
 }
 .Selecciones > button{
     display: list-item;
     background-color: lightskyblue;
     font-size: large;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin: 5px;
+    padding: 2% 1%;
+    margin: 2%;
     border: 2px solid orange;
     border-radius: 20px;
-    width: 200px;
+    width: 90%;
 }
 
 
