@@ -14,26 +14,27 @@ body{
     /*padding: 20px;*/
     height: 100%;
     width: 97.2%;
-    min-height: 360px;
-    min-width: 480px;
+    min-height: 720px;
+    min-width: 1280px;
     padding: 2.451% 1.388%;
-    background-color: dodgerblue;
+    background-color: aliceblue;
 }
 .Titulo{
     float: right;
     padding: 1.225% 0.694%;
     height: 3.86%;
     width: 77%;
+    min-height: 50px;
     background-color: cornflowerblue;
     border: 2px solid orange;
     border-radius: 20px;
 }
 .Intro{
-    margin-top: 1.225%;
+    margin-top: 3%;
     padding: 1.225% 0.694%;
     float: right;
     width: 77%;
-    min-height: 90px;
+    min-height: 165px;
     background-color: cornflowerblue;
     border: 2px solid orange;
     border-radius: 20px;
@@ -45,17 +46,19 @@ body{
     /*padding: 2.450% 1.388%;*/
     padding-top: 1%;
     padding-bottom: 1%;
-    background-color: dodgerblue;
+    margin-top: 8%;
+    background-color: aliceblue;
 }
 .Selecciones > button{
     display: list-item;
     background-color: lightskyblue;
     font-size: large;
-    padding: 2% 1%;
-    margin: 2% 5%;
+    padding: 3% 1%;
+    margin: 3% 5%;
     border: 2px solid orange;
     border-radius: 20px;
     width: 90%;
+    height: 150%;
 }
 
 

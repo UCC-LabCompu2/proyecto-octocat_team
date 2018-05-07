@@ -1,45 +1,86 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 body{
     text-align: center;
-    background-color: cornflowerblue;
+    background-color: aliceblue;
 }
-.Titulo{
-    padding: 20px 20%;
-    margin: 30px;
-    border: 2px solid darkblue;
-    border-radius: 20px;
+
+.General{
+    height: 97%;
+    width: 97%;
+    margin: auto;
+}
+.TituloSerie{
     background-color: dodgerblue;
+    width: 100%;
+    height: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.Intro{
-    text-align: left;
-    padding: 20px 2%;
-    margin: 30px;
-    border: 2px solid orangered;
-    border-radius: 20px;
-    background-color: coral;
+.ContenidoSerie{
+    background-color: blue;
+    width: 100%;
+    height: 90%;
+    min-height: 100px;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.Selecciones{
-    /*width: 100%;*/
-    /*padding: 10px 10%;
-    margin: 30px;*/
-    border: 2px solid orangered;
-    border-radius: 20px;
-    background-color: coral;
-    white-space: nowrap;
-    overflow: scroll;
+.DivCanvasSerie{
+    height: 50%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: deepskyblue;
 }
-.Selecciones > div{
-    padding: 10px 10%;
-    margin: 10px;
-    width: 5%;
-    border: 2px solid orange;
-    border-radius: 20px;
-    display: inline-block;
+#CanvasSerie{
+    height: 98%;
+    width: 98%;
+    border: solid 2px darkorange;
 }
-.Op1{
+.DivCalculosSerie{
+    height: 50%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    margin-bottom: 0.5%;
+    background-color: darkslateblue;
 }
-.Op2{
+.ValResist{
+
+    width: 35%;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: red;*/
 }
-.Op4{
+button{
+    width: 40px;
+    height: 15px;
+    margin-left: auto;
+    margin-right: 1%;
 }
-.Op3{
+
+.FemCorrientes{
+    width: 50%;
+    height: 90%;
+    background-color: orange;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.DivFem{
+    width: 30%;
+    height: 90%;
+}
+.DivCorrientes{
+    float: right;
+    width: 50%;
+    height: 90%;
 }
