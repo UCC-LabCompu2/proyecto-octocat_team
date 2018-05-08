@@ -2,9 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Circuito Paralelo</title>
+    <link rel="stylesheet" href="CSS/CParalelo_Style.css">
 </head>
 <body>
-
+<div class="General">
+    <div class="TituloParalelo">
+        <h1>Calculo para circuitos con resistencias en Paralelo</h1>
+    </div>
+    <div class="ContenidoParalelo">
+        <h2>Canvas</h2>
+        <div class="DivCanvasParalelo">
+            <canvas id="CanvasParalelo">Tu navegador no soporta Canvas de HTML5</canvas>
+        </div>
+        <div class="DivCalculosParalelo">
+            <div class="ValResist" style="float: start;">
+                <button>R1</button><input type="number" name="valR1">
+                <select name="multiploOhmR1" id="mOhmR1">
+                    <option value="mOhm">mΩ</option>
+                    <option value="Ohm">Ω</option>
+                    <option value="KOhm">KΩ</option>
+                    <option value="MOhm">MΩ</option>
+                </select><br>
+                <button>R2</button><input type="number" name="valR2">
+                <select name="multiploOhmR2" id="mOhmR2">
+                    <option value="mOhm">mΩ</option>
+                    <option value="Ohm">Ω</option>
+                    <option value="KOhm">KΩ</option>
+                    <option value="MOhm">MΩ</option>
+                </select><br>
+                <button>R3</button><input type="number" name="valR3">
+                <select name="multiploOhmR3" id="mOhmR3">
+                    <option value="mOhm">mΩ</option>
+                    <option value="Ohm">Ω</option>
+                    <option value="KOhm">KΩ</option>
+                    <option value="MOhm">MΩ</option>
+                </select><br>
+                <button>R4</button><input type="number" name="valR4">
+                <select name="multiploOhmR4" id="mOhmR4">
+                    <option value="mOhm">mΩ</option>
+                    <option value="Ohm">Ω</option>
+                    <option value="KOhm">KΩ</option>
+                    <option value="MOhm">MΩ</option>
+                </select><br>
+                <button>R5</button><input type="number" name="valR5">
+                <select name="multiploOhmR5" id="mOhmR5">
+                    <option value="mOhm">mΩ</option>
+                    <option value="Ohm">Ω</option>
+                    <option value="KOhm">KΩ</option>
+                    <option value="MOhm">MΩ</option>
+                </select><br>
+                <button>R6</button><input type="number" name="valR6">
+                <select name="multiploOhmR6" id="mOhmR6">
+                    <option value="mOhm">mΩ</option>
+                    <option value="Ohm">Ω</option>
+                    <option value="KOhm">KΩ</option>
+                    <option value="MOhm">MΩ</option>
+                </select><br>
+                <button>R7</button><input type="number" name="valR7">
+                <select name="multiploOhmR7" id="mOhmR7">
+                    <option value="mOhm">mΩ</option>
+                    <option value="Ohm">Ω</option>
+                    <option value="KOhm">KΩ</option>
+                    <option value="MOhm">MΩ</option>
+                </select><br>
+                <button>R8</button><input type="number" name="valR8">
+                <select name="multiploOhmR8" id="mOhmR8">
+                    <option value="mOhm">mΩ</option>
+                    <option value="Ohm">Ω</option>
+                    <option value="KOhm">KΩ</option>
+                    <option value="MOhm">MΩ</option>
+                </select><br>
+            </div>
+            <div class="FemCorrientes" style="float: inside">
+                <div class="DivFem" style="padding: 0.5%;">
+                    <h3>fem 1</h3><br>
+                    <button style="width: 75px; height: 35px; margin-bottom: 1%; border-radius: 2px;"><h1>+</h1></button><br>
+                    <input type="number" name="Valfem1" style="width: 40px">
+                    <button style="width: 25px; height: 20px;">[V]</button><br>
+                    <button style="width: 75px; height: 35px; margin-top: 1%;border-radius: 2px;"><h1>-</h1></button><br>
+                    Req=<input type="number" name="Req" style="width: 40px">
+                    <button style="width: 25px; height: 20px;">[Ω]</button><br>
+                </div>
+                <div class="DivCorrientes">
+                    <button>I1</button><input type="number" name="valI1"><br>
+                    <button>I2</button><input type="number" name="valI2"><br>
+                    <button>I3</button><input type="number" name="valI3"><br>
+                    <button>I4</button><input type="number" name="valI4"><br>
+                    <button>I5</button><input type="number" name="valI5"><br>
+                    <button>I6</button><input type="number" name="valI6"><br>
+                    <button>I7</button><input type="number" name="valI7"><br>
+                    <button>I8</button><input type="number" name="valI8"><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
