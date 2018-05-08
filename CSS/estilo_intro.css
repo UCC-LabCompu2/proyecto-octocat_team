@@ -1,0 +1,166 @@
+@import url(reset.css);
+@import url(fuentes.css);
+
+/*---------ESTILOS GENERALES-------------*/
+body {
+    background: lightgray;
+    font-family: Arial, sans-serif;
+}
+
+a {text-decoration: none; color: #fff}
+a:hover {text-decoration: underline;}
+
+#wrap {
+    width: 960px;
+    margin: auto;
+    clear:both;
+}
+
+/*---------HEADER----------*/
+header {
+    width: 100%;
+    float: left;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+14,2989d8+14,207cca+25,207cca+30,1e5799+55,7db9e8+100 */
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 14%,#2989d8 14%,#207cca 25%,#207cca 30%,#1e5799 55%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 14%,#2989d8 14%,#207cca 25%,#207cca 30%,#1e5799 55%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+    box-shadow: 0px 3px 5px #000;
+        -moz-box-shadow: 0px 3px 5px #000;
+        -webkit-box-shadow: 0px 3px 5px #000;
+}
+
+#sub-header{
+    width: 960px;
+    margin: auto;
+}
+
+#logotipo{
+    float: left;
+    width: 700px;
+    padding: 15px 0px;
+}
+
+#logotipo a{
+    font-family: gelbertreg;
+    font-size: 40px;
+    color: #000;
+}
+
+#logotipo a:hover {text-decoration: none;}
+
+/*---MENU-----*/
+header #sub-header nav{
+    float: left;
+    width: 260px;
+    padding: 30px 0px;
+    text-align: right;
+}
+
+header #sub-header nav ul li{
+   display: inline;
+    font-family: gelbertreg;
+}
+
+header #sub-header nav ul li a {
+    color: #000;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+}
+
+header #sub-header nav ul li a:hover{
+    color: #fff;
+    background: #1798af;
+    text-decoration: none;
+}
+
+/*---MAIN----*/
+#main {
+    width: 100%;
+    margin: 20px 0px 0px 0px;
+    float: left;
+}
+
+/*--- Intorduccion-----*/
+#introduccion {
+    width: 920px;
+    float: left;
+    padding: 20px;
+    background: #7db9e8;
+    margin: 20px 0px;
+    border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+    box-shadow:0px 2px 2px #000;
+        -moz-box-shadow:0px 2px 2px #000;
+        -webkit-box-shadow:0px 2px 2px #000;
+}
+
+#introduccion article h3{
+    font-family: Calibri;
+    color: lightcyan;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+#introduccion article {
+    color: lightcyan;
+    line-height: 27px;
+    font-size: 18px;
+}
+
+/*----Contenido----*/
+#contenido {
+    width: 960px;
+    float: left;
+}
+
+#contenido article {
+    float: left;
+    margin-bottom: 20px;
+}
+
+ #contenido article .titulo{
+     font-size: 28px;
+     font-family: Calibri;
+     color: #1e5799;
+ }
+
+ #contenido article .imag{
+     float: left;
+     margin: 0px 10px 10px 10px;
+ }
+ #contenido article > p {
+     color: #1e5799;
+     font-size: 18px;
+     text-align: justify;
+     line-height: 28px;
+     padding: 10px;
+     margin: 18px 0px 5px 0px;
+ }
+#contenido .paralelo{
+    margin: 18px 0px 110px 0px;
+}
+
+
+
+#contenido article ul {
+    padding: 5px;
+    margin: 16px 0px 5px 0px;
+}
+
+#contenido article ul li {
+    color: crimson;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 28px;
+    padding: 5px;
+}
+
+#contenido .figura{
+    margin: 0px 205px 0px 205px
+}
