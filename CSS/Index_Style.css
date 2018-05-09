@@ -51,7 +51,7 @@ body{
     border: 2px solid orange;
     border-radius: 20px;
     vert-align: middle;
-    display: flex;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
 }
@@ -75,4 +75,11 @@ button.Op4{
     border-radius: 20px;
     width: 90%;
     height: 150%;
+}
+.ImgContenedor{
+    margin-bottom: 25%;
+}
+.Logo{
+    width: 180px;
+    height: 120px;
 }
