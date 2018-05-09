@@ -1,9 +1,9 @@
 @import url(reset.css);
 @import url(fuentes.css);
 
-/*---------ESTILOS GENERALES-------------*/
+/*---------ESTILOS GENERALES------------*/
 body {
-    background: lightgray;
+    background:conic-gradient(dimgrey,olivedrab);
     font-family: Arial, sans-serif;
 }
 
@@ -50,7 +50,8 @@ header {
 
 #logotipo a:hover {text-decoration: none;}
 
-/*---MENU-----*/
+
+/*-------MENU--------*/
 header #sub-header nav{
     float: left;
     width: 260px;
@@ -85,7 +86,8 @@ header #sub-header nav ul li a:hover{
     float: left;
 }
 
-/*--- Intorduccion-----*/
+
+/*------INTRODUCCION-----*/
 #introduccion {
     width: 920px;
     float: left;
@@ -113,7 +115,7 @@ header #sub-header nav ul li a:hover{
     font-size: 18px;
 }
 
-/*----Contenido----*/
+/*----------CONTENIDO----------*/
 #contenido {
     width: 960px;
     float: left;
@@ -124,37 +126,37 @@ header #sub-header nav ul li a:hover{
     margin-bottom: 20px;
 }
 
- #contenido article .titulo{
+#contenido article .titulo{
      font-size: 28px;
      font-family: Calibri;
      color: #1e5799;
  }
 
- #contenido article .imag{
+#contenido article .imag{
      float: left;
      margin: 0px 10px 10px 10px;
- }
- #contenido article > p {
+}
+#contenido article > p {
      color: #1e5799;
      font-size: 18px;
      text-align: justify;
      line-height: 28px;
      padding: 10px;
      margin: 18px 0px 5px 0px;
- }
-#contenido .paralelo{
-    margin: 18px 0px 110px 0px;
 }
-
+#contenido .paralelo{
+    margin: 18px 0px 60px 0px;
+    padding: 80px 10px 10px 10px;
+}
 
 
 #contenido article ul {
     padding: 5px;
-    margin: 16px 0px 5px 0px;
+    margin: 16px 5px 5px 20px;
 }
 
 #contenido article ul li {
-    color: crimson;
+    color: #1e5799;
     font-size: 18px;
     text-align: justify;
     line-height: 28px;
@@ -163,4 +165,87 @@ header #sub-header nav ul li a:hover{
 
 #contenido .figura{
     margin: 0px 205px 0px 205px
+}
+
+
+
+/**----FOOTER--**/
+footer {
+    width: 100%;
+    float: left;
+    clear: both;
+    box-shadow: 0px 2px 2px #000;
+    -moz-box-shadow: 0px 2px 2px #000;
+    -webkit-box-shadow: 0px 2px 2px #000;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+14,2989d8+14,207cca+25,207cca+30,1e5799+55,7db9e8+100 */
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 14%,#2989d8 14%,#207cca 25%,#207cca 30%,#1e5799 55%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 14%,#2989d8 14%,#207cca 25%,#207cca 30%,#1e5799 55%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+footer #acerca-de {
+    width: 640px;
+    float: left;
+    padding:20px;
+}
+
+footer #redes-s{
+    width: 240px;
+    float: left;
+    padding: 45px 20px 45px 20px;
+}
+
+footer #redes-s > div {
+    width: 60px;
+    height: 60px;
+    float: left;
+
+    opacity: 0.6;
+}
+
+footer #redes-s >div a{
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+}
+
+footer #redes-s .email{
+    background: url(../imagenes/google-logo.png);
+}
+
+footer #redes-s .youtube{
+    background: url(../imagenes/youtube-logo.png);
+}
+
+footer #redes-s .GitHub{
+    background: url(../imagenes/github-logos.png);
+}
+
+footer #redes-s .Facebook{
+    background: url(../imagenes/facebook-logo.png);
+}
+
+footer #redes-s > div:hover{
+    opacity: 1;
+}
+
+
+/*------COPYRIGHT------*/
+
+#copyright {
+    float: left;
+    width: 960px;
+    margin: 10px 0px;
+}
+
+#copyright p {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    font-family: Arial, cursive;
 }
