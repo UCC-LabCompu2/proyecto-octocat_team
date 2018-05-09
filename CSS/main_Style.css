@@ -30,24 +30,40 @@ body{
     border-radius: 20px;
 }
 .Intro{
-    margin-top: 3%;
+    margin-top: 1%;
     padding: 1.225% 0.694%;
     float: right;
     width: 77%;
-    min-height: 165px;
+    height: 100%;
+    min-height: 400px;
     background-color: cornflowerblue;
     border: 2px solid orange;
     border-radius: 20px;
 }
-.Selecciones{
-    alignment: center;
+.DivIzq{
     width: 21%;
-    height: 96.6%;
-    /*padding: 2.450% 1.388%;*/
+    height: 100%;
+    min-height: 700px;
     padding-top: 1%;
     padding-bottom: 1%;
-    margin-top: 8%;
-    background-color: aliceblue;
+    margin-top: 0%;
+    background-color: cornflowerblue;
+    border: 2px solid orange;
+    border-radius: 20px;
+    vert-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Selecciones{
+    width: 98%;
+    height: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: cornflowerblue;
+
+}
+button.Op4{
 }
 .Selecciones > button{
     display: list-item;
@@ -60,71 +76,3 @@ body{
     width: 90%;
     height: 150%;
 }
-
-
-
-
-/*
-.Titulo{
-    padding: 20px 20%;
-    margin: 30px;
-    border: 2px solid darkblue;
-    border-radius: 20px;
-    background-color: dodgerblue;
-}
-
-.Cuerpo{
-    border: 2px solid darkblue;
-    border-radius: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin: 30px;
-    white-space: nowrap;
-    overflow: ;
-    width: available;
-}
-.Selecciones{
-    align-content: center;
-    display: inline-list-item;
-    width: 10%;
-    float: left;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin: 30px;
-    border: 2px solid red;
-    border-radius: 20px;
-    background-color: dodgerblue;
-}
-.Intro{
-    display: inline-block;
-    width: fit-content;
-    text-align: left;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin: 30px;
-    border: 2px solid red;
-    border-radius: 20px;
-    background-color: dodgerblue;
-}
-.Selecciones > button{
-    display: list-item;
-    background-color: lightskyblue;
-    font-size: large;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin: 5px;
-    border: 2px solid orange;
-    border-radius: 20px;
-    width: 200px;
-}
-button{
-    /*background-color: lightskyblue;
-}*/
