@@ -104,13 +104,13 @@ header #sub-header nav ul li a:hover{
 
 #introduccion article h3{
     font-family: Calibri;
-    color: lightcyan;
+    color: black;/*lightcyan;*/
     font-size: 35px;
     margin-bottom: 5px;
 }
 
 #introduccion article {
-    color: lightcyan;
+    color: black;
     line-height: 27px;
     font-size: 18px;
 }

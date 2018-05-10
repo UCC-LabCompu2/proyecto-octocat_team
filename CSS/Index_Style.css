@@ -19,16 +19,46 @@ body{
     padding: 2.451% 1.388%;
     background-color: aliceblue;
 }
-.Titulo{
+.Titulo {
     float: right;
     padding: 1.225% 0.694%;
     height: 3.86%;
     width: 77%;
     min-height: 50px;
-    background-color: cornflowerblue;
+    /*background-color:cornflowerblue;*/
     border: 2px solid orange;
     border-radius: 20px;
+
+    background: #1e5799;
+    background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=0); /* IE6-9 */
+    box-shadow: 0px 3px 5px #000;
+    -moz-box-shadow: 0px 3px 5px #000;
+    -webkit-box-shadow: 0px 3px 5px #000;
 }
+
+.tituloh3{
+    font-size: 36px;
+    font-family: Calibri;
+    color: black;
+}
+
+.parrafo {
+    font-size: 22px;
+    font-family: Calibri;
+    text-align: justify;
+    color:black;
+}
+
+.portada{
+    border-radius: 7px;
+    width: 583px;
+    height: 335px;
+}
+
+
 .Intro{
     margin-top: 1%;
     padding: 1.225% 0.694%;
@@ -77,9 +107,11 @@ button.Op4{
     height: 150%;
 }
 .ImgContenedor{
-    margin-bottom: 25%;
+    margin-bottom: 20%;
 }
 .Logo{
     width: 180px;
-    height: 120px;
+    height: 160px;
+    border-radius: 6px;
+    padding: 45px 0px 0px 0px;
 }
