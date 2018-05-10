@@ -1,3 +1,4 @@
+@import url(fuentes.css);
 *{
     margin: 0px;
     padding: 0px;
@@ -114,4 +115,10 @@ button.Op4{
     height: 160px;
     border-radius: 6px;
     padding: 45px 0px 0px 0px;
+}
+
+body div .Titulo{
+    font-family: gelbertreg;;
+    font-size: 20px;
+    color: #000;
 }
