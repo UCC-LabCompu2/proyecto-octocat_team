@@ -12,5 +12,5 @@ proyecto-octocat_team created by GitHub Classroom
 2. Item 2
 3. Item 3
 
-[ver] (https://github.com/UCC-LabCompu2/proyecto-octocat_team)
+[ver] (/UCC-LabCompu2.github.io/proyecto-octocat_team)
 
