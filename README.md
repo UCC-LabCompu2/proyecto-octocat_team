@@ -3,6 +3,7 @@ proyecto-octocat_team created by GitHub Classroom
 
 ¿Que es?
 --------
+Nuestro proyecto aborda la resolución de circuitos serie, paralelo en corriente continua.
 
 * Item 1
 * Item 2
