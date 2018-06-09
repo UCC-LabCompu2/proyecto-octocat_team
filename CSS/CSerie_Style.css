@@ -45,7 +45,8 @@ body{
 #CanvasSerie{
     height: 98%;
     width: 98%;
-    max-height: 450px;
+    /*max-height: 450px;*/
+    min-height: 300px;
     margin-top: auto;
     margin-bottom: auto;
 }

@@ -96,3 +96,16 @@ button{
     width: 50%;
     height: 90%;
 }
+
+.buttonMas{
+    width: 75px;
+    height: 35px;
+    margin-bottom: 1%;
+    border-radius: 2px;
+}
+.buttonMenos{
+    width: 75px;
+    height: 35px;
+    margin-top: 1%;
+    border-radius: 2px;
+}
