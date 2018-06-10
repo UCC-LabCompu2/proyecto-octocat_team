@@ -16,16 +16,20 @@ function CalcularSerie() {
     var It = 1;
     var sel;
 
-    for(i=1; i < 8; i++) {
-        valor[i] = document.getElementsByName("valR")[i-1].value;
+    for(i=0; i < 7; i++) {
+        valor[i] = document.getElementsByName("valR")[i].value;
         if(valor[i] < 0 /*Agregar comprobacion solo numeros.*/){
             alert("El valor de la resistencia " + i + " es invalido. Por favor verifique los datos.")
-        }else{
+        }else if (valor[i] >= 0){
 
+        }else{
+            valor[i] = 0;
         }
+        //alert(valor)
     }
-    for(i=1; i<8; i++){
-        sel = document.getElementsByName("multiploOhmR")[i-1];
+    //alert(valor);
+    for(i=0; i<7; i++){
+        sel = document.getElementsByName("multiploOhmR")[i];
         switch(sel.options[sel.selectedIndex].value){
             case "mOhm":
                 multiplicador[i] = 0.001;
@@ -46,11 +50,11 @@ function CalcularSerie() {
 
     }
 
-    for(i=1 ; i<8; i++){
+    for(i=0 ; i<7; i++){
         resistencias[i] = valor[i] * multiplicador[i];
     }
 
-    for(i=1; i<8; i++){
+    for(i=0; i<7; i++){
         Req += resistencias[i];
     }
 
@@ -65,8 +69,8 @@ function CalcularSerie() {
     document.getElementById("valIt").value = It.toFixed(3);
     document.getElementById("Req").value = Req.toFixed(3);
 
-    for(i=1; i<8; i++){
-        document.getElementsByName("valV")[i-1].value = (It * resistencias[i]).toFixed(3);
+    for(i=0; i<7; i++){
+        document.getElementsByName("valV")[i].value = (It * resistencias[i]).toFixed(3);
     }
 
     //DibujarResistencia("canvasSerie", 20, 20, 10);
@@ -76,13 +80,20 @@ function CalcularSerie() {
 
     var x0=20, y0=20, d=10;
 
-    for(i=1; i<8; i++){
-        if(resistencias[i] =! 0){
-            x4 = x0 + ((i-1)  * d);
-            DibujarResistencia("canvasSerie", x4, y0, d);
-            alert(""+x4);
+    for(i=0; i<7; i++){
+        if(valor[i] =! 0){
+            var x4 = x0 + (i  * d);
+            //DibujarResistencia("canvasSerie", x4, y0, d);
+            //alert(""+x4);
+            //alert(valor);
+        }
+        else {
+            DibujarLinea("canvasSerie", x0 + (i) * d);
+            alert("HOLA")
         }
     }
+
+    CircuitoSerie("canvasSerie", 30, 50, 10, resistencias);
 
 }
 
@@ -104,13 +115,15 @@ function CambiarVoltaje(boton) {
 function DibujarResistencia(canv, x0, y0, d){
     var canvas = document.getElementById(canv);
 
+
     var width = canvas.width;
     var height = canvas.height;
 
     if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
 
-        ctx.clearRect(0,0,width,height);
+        //ctx.scale(0.5,0.5);
+        //ctx.clearRect(0,0,width,height);
 
         //var d = 10;
 
@@ -173,17 +186,20 @@ function DibujarFem(canv, x0, y0, d) {
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(x[3],y[0]);
-        ctx.lineTo(x[3],y[3]); ctx.moveTo(x[1],y[4]);
+        ctx.lineTo(x[3],y[3]); ctx.moveTo(x[1],y[3]);
 
-        ctx.lineTo(x[5], y[4]); ctx.moveTo(x[3],y[4]);
+        ctx.lineTo(x[5], y[3]); ctx.moveTo(x[3],y[4]);
         ctx.lineTo(x[3],y[7]);
         ctx.closePath();
         ctx.stroke();
 
+        ctx.fillText("--", x[0], y[5]);
+        ctx.fillText("+", x[0], y[3]);
+
         ctx.lineWidth = 6;
         ctx.beginPath();
-        ctx.moveTo(x[2],y[3]);
-        ctx.lineTo(x[4],y[3]);
+        ctx.moveTo(x[2],y[4]);
+        ctx.lineTo(x[4],y[4]);
         ctx.closePath();
         ctx.stroke();
     }
@@ -191,17 +207,17 @@ function DibujarFem(canv, x0, y0, d) {
 
 }
 
-function DibujarLinea(canv, x0, y0, d){
+function DibujarLinea(canv, x0, y0, d, orient){
     var canvas = document.getElementById(canv);
 
     if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
 
         var x = [], y = [];
-        var orient = "h";
+        //var orient = "h";
 
         if(orient == "h"){
-            x[0] = x0, y[0] = y0 - 3*d;
+            x[0] = x0, y[0] = y0 - 2*d;
         }else if(orient == "v"){
             x[0] = x0 - 3*d, y[0] = y0;
         }
@@ -225,7 +241,6 @@ function DibujarLinea(canv, x0, y0, d){
         ctx.stroke();
     }
 }
-
 
 function cuadricula(canv) {
     var canvas = document.getElementById(canv);
@@ -257,5 +272,52 @@ function cuadricula(canv) {
         ctx.stroke();
 
     }
+}
+
+function text(canv, x0, y0, d, text) {
+    var canvas = document.getElementById(canv);
+
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+        ctx.font = "15px Arial";
+        ctx.fillText(text, x0 + 2.5*d, y0);
+
+    }
+}
+
+function CircuitoSerie(canv, x0, y0, d, resis) {
+
+    var x = [], y =[];
+    x[0]=x0;
+    y[0]=y0
+    for(var i=1;i<8;i++){
+        x[i] = x[i-1] + (6*d);
+        y[i] = y[i-1] + (6*d);
+    }
+    for(var t=0;t<7;t++){
+        //DibujarResistencia(canv,x[i],y0,d);
+    }
+
+    for(var j=0;j<7;j++){
+        DibujarResistencia(canv, x[j], y[0], d);
+        text(canv, x[j], y[0] - d*2, d, "R" + (j+1));
+        text(canv, x[j], y[0] + d*3, d, "V" + (j+1));
+        DibujarLinea(canv, x[j], y[3], d, "h");
+    }
+
+
+    DibujarLinea(canv, x[0], y[0], d, "v");
+    DibujarFem(canv, x[0], y[1], d);
+    text(canv, x[0] - 2*d, y[1] + d, d, "fem");
+    DibujarLinea(canv, x[0], y[2], d, "v");
+
+    DibujarLinea(canv, x[7] + 1*d, y[0], d, "v");
+    DibujarLinea(canv, x[7] + 1*d, y[1], d, "v");
+    DibujarLinea(canv, x[7] + 1*d, y[2], d, "v");
+
+
+
+
 }
 

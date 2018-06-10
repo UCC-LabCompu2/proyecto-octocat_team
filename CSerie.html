@@ -5,7 +5,7 @@
     <title>Circuito Serie</title>
     <meta name="author" content="David Tupac - Juan Hernandez">
     <meta name="description" content="Proyecto Laboratorio de Computación II - UCC">
-    <meta name="kewwords" content="circuitos, serie, paralelo, resistencia">
+    <meta name="keywords" content="circuitos, serie, paralelo, resistencia">
     <link rel="stylesheet" href="CSS/CSerie_Style.css">
     <link rel="icon" href="Imagenes/attenuator.png" type="image/x-icon">
     <script type="text/javascript" src="JavaScript/Funciones.js"></script>
@@ -18,7 +18,7 @@
         <div class="ContenidoSerie">
             <h2>Canvas</h2>
             <div class="DivCanvasSerie">
-                <canvas id="canvasSerie">Tu navegador no soporta Canvas de HTML5</canvas>
+                <canvas id="canvasSerie" width="480" height="300">Tu navegador no soporta Canvas de HTML5</canvas>
             </div>
             <div class="DivCalculosSerie">
                 <div class="ValResist" style="float: start;">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="FemCorrientes" style="float: inside">
                     <div class="DivFem" style="padding: 0.5%;">
-                        <h3>fem 1</h3><br>
+                        <h3>fem</h3><br>
                         <button id="buttonMas" onclick="CambiarVoltaje(this.id)" style="width: 75px; height: 35px; margin-bottom: 1%; border-radius: 2px;"><h1>+</h1></button><br>
                         <input type="number" id="valfem1" value="10" onchange="CalcularSerie()" style="width: 40px">
                         <button style="width: 25px; height: 20px;">[V]</button><br>

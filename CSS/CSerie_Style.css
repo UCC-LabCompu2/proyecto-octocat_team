@@ -46,9 +46,10 @@ body{
     height: 98%;
     width: 98%;
     /*max-height: 450px;*/
-    min-height: 300px;
+    /*min-height: 300px;*/
     margin-top: auto;
     margin-bottom: auto;
+    border: solid 2px black;
 }
 .DivCalculosSerie{
     height: 50%;
