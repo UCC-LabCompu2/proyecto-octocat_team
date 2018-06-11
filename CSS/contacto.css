@@ -36,7 +36,7 @@ input, textarea {
 textarea {
     min-height: 100px;
     max-height: 200px;
-    max-width: 10%;
+    max-width: 100%;
 }
 
 #boton{
