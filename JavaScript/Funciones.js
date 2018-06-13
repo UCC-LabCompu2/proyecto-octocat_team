@@ -462,38 +462,38 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
 }
 
 function CircuitoParalelo(canv, x0, y0, d, resis) {
-    var x = [], y =[];
-    x[0]=x0;
-    y[0]=y0
-    for(var i=1;i<8;i++){
-        x[i] = x[i-1] + (6*d);
-        y[i] = y[i-1] + (6*d);
+    var x = [], y = [];
+    x[0] = x0;
+    y[0] = y0
+    for (var i = 1; i < 8; i++) {
+        x[i] = x[i - 1] + (6 * d);
+        y[i] = y[i - 1] + (6 * d);
     }
-    for(var t=0;t<7;t++){
+    for (var t = 0; t < 7; t++) {
         //DibujarResistencia(canv,x[i],y0,d);
     }
 
-    for(var j=0;j<7;j++){
-        DibujarResistenciaParl(canv, x[j],y[0] , d);
-        DibujarLinea(canv, x[j], y[0]-1*d, d, "h");
+    for (var j = 0; j < 7; j++) {
+        DibujarResistenciaParl(canv, x[j], y[0], d);
+        DibujarLinea(canv, x[j], y[0] - 1 * d, d, "h");
         DibujarLinea(canv, x[j], y[3], d, "h");
-        text(canv, x[j]+d*6, y[0] + d*10, d, "R" + (j+1));
+        text(canv, x[j] + d * 6, y[0] + d * 10, d, "R" + (j + 1));
     }
 
     DibujarLinea(canv, x[0], y[0], d, "v");
     DibujarFem(canv, x[0], y[1], d);
-    text(canv, x[0] - 2*d, y[1] + d, d, "fem");
+    text(canv, x[0] - 2 * d, y[1] + d, d, "fem");
     DibujarLinea(canv, x[0], y[2], d, "v");
 
-    for(i=1;i<8;i++){
-        DibujarLinea(canv, x[i] + 1*d, y[0], d, "v");
+    for (i = 1; i < 8; i++) {
+        DibujarLinea(canv, x[i] + 1 * d, y[0], d, "v");
     }
 
-    for(i=1;i<8;i++){
-        DibujarLinea(canv, x[i] + 1*d, y[2], d, "v");
+    for (i = 1; i < 8; i++) {
+        DibujarLinea(canv, x[i] + 1 * d, y[2], d, "v");
     }
+}
 
-<<<<<<< HEAD
 function DibujarFlecha(canv, x0, y0, d, ang){
     var canvas = document.getElementById(canv);
     if (canvas.getContext) {
@@ -539,6 +539,3 @@ function drawArrowhead(locx, locy, angle, sizex, sizey) {
     }
 }
 
-=======
-}
->>>>>>> ef3f41d887f089754816edc4456988611553f3a4
