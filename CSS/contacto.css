@@ -1,0 +1,60 @@
+body {
+    background-color: aliceblue;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: monospace;
+}
+
+form {
+    width: 450px;
+    margin: auto;
+    /*background-color: deepskyblue;*/
+    /*background: rgba(0,0,0,0.4);*/
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+    background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%);
+    background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 14%,#2989d8 14%,#207cca 25%,#207cca 30%,#1e5799 55%,#7db9e8 100%);
+    background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 14%,#2989d8 14%,#207cca 25%,#207cca 30%,#1e5799 55%,#7db9e8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+}
+
+h2{
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border: none;
+}
+
+textarea {
+    min-height: 100px;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+#boton{
+    background: #31384A;
+    color: #fff;
+    padding: 20px;
+}
+#boton:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    form{
+        width: 100%;
+    }
+}

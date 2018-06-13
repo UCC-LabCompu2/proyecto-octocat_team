@@ -67,6 +67,7 @@ body{
     width: 77%;
     height: 100%;
     min-height: 400px;
+    /*background-color: #7db9e8;*/
     background-color: cornflowerblue;
     border: 2px solid orange;
     border-radius: 20px;
@@ -85,6 +86,7 @@ body{
     /*display: flex;*/
     justify-content: center;
     align-items: center;
+
 }
 .Selecciones{
     width: 98%;
@@ -99,6 +101,7 @@ button.Op4{
 .Selecciones > button{
     display: list-item;
     background-color: lightskyblue;
+    /*background-color: transparent;*/
     font-size: large;
     padding: 3% 1%;
     margin: 3% 5%;
@@ -106,6 +109,7 @@ button.Op4{
     border-radius: 20px;
     width: 90%;
     height: 150%;
+
 }
 .ImgContenedor{
     margin-bottom: 20%;

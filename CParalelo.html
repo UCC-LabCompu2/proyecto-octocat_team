@@ -8,6 +8,7 @@
     <meta name="kewwords" content="circuitos, serie, paralelo, resistencia">
     <link rel="stylesheet" href="CSS/CParalelo_Style.css">
     <link rel="icon" href="Imagenes/attenuator.png" type="image/x-icon">
+    <script type="text/javascript" src="JavaScript/Funciones.js"></script>
 </head>
 <body>
 <div class="General">
@@ -17,86 +18,79 @@
     <div class="ContenidoParalelo">
         <h2>Canvas</h2>
         <div class="DivCanvasParalelo">
-            <canvas id="CanvasParalelo">Tu navegador no soporta Canvas de HTML5</canvas>
+            <canvas id="canvasParalelo" width="500" height="300">Tu navegador no soporta Canvas de HTML5</canvas>
         </div>
         <div class="DivCalculosParalelo">
             <div class="ValResist" style="float: start;">
-                <button>R1</button><input type="number" name="valR1">
-                <select name="multiploOhmR1" id="mOhmR1">
+                <button>R<sub>1</sub></button><input type="number" name="valR" onchange="CalcularParalelo()">
+                <select name="multiploOhmR" id="mOhmR1" onchange="CalcularParalelo()">
                     <option value="mOhm">mΩ</option>
-                    <option value="Ohm">Ω</option>
+                    <option value="Ohm" selected="selected">Ω</option>
                     <option value="KOhm">KΩ</option>
                     <option value="MOhm">MΩ</option>
                 </select><br>
-                <button>R2</button><input type="number" name="valR2">
-                <select name="multiploOhmR2" id="mOhmR2">
+                <button>R<sub>2</sub></button><input type="number" name="valR" onchange="CalcularParalelo()">
+                <select name="multiploOhmR" id="mOhmR2" onchange="CalcularParalelo()">
                     <option value="mOhm">mΩ</option>
-                    <option value="Ohm">Ω</option>
+                    <option value="Ohm" selected="selected">Ω</option>
                     <option value="KOhm">KΩ</option>
                     <option value="MOhm">MΩ</option>
                 </select><br>
-                <button>R3</button><input type="number" name="valR3">
-                <select name="multiploOhmR3" id="mOhmR3">
+                <button>R<sub>3</sub></button><input type="number" name="valR" onchange="CalcularParalelo()">
+                <select name="multiploOhmR" id="mOhmR3" onchange="CalcularParalelo()">
                     <option value="mOhm">mΩ</option>
-                    <option value="Ohm">Ω</option>
+                    <option value="Ohm" selected="selected">Ω</option>
                     <option value="KOhm">KΩ</option>
                     <option value="MOhm">MΩ</option>
                 </select><br>
-                <button>R4</button><input type="number" name="valR4">
-                <select name="multiploOhmR4" id="mOhmR4">
+                <button>R<sub>4</sub></button><input type="number" name="valR" onchange="CalcularParalelo()">
+                <select name="multiploOhmR" id="mOhmR4" onchange="CalcularParalelo()">
                     <option value="mOhm">mΩ</option>
-                    <option value="Ohm">Ω</option>
+                    <option value="Ohm" selected="selected">Ω</option>
                     <option value="KOhm">KΩ</option>
                     <option value="MOhm">MΩ</option>
                 </select><br>
-                <button>R5</button><input type="number" name="valR5">
-                <select name="multiploOhmR5" id="mOhmR5">
+                <button>R<sub>5</sub></button><input type="number" name="valR" onchange="CalcularParalelo()">
+                <select name="multiploOhmR" id="mOhmR5" onchange="CalcularParalelo()">
                     <option value="mOhm">mΩ</option>
-                    <option value="Ohm">Ω</option>
+                    <option value="Ohm" selected="selected">Ω</option>
                     <option value="KOhm">KΩ</option>
                     <option value="MOhm">MΩ</option>
                 </select><br>
-                <button>R6</button><input type="number" name="valR6">
-                <select name="multiploOhmR6" id="mOhmR6">
+                <button>R<sub>6</sub></button><input type="number" name="valR" onchange="CalcularParalelo()">
+                <select name="multiploOhmR" id="mOhmR4" onchange="CalcularParalelo()">
                     <option value="mOhm">mΩ</option>
-                    <option value="Ohm">Ω</option>
+                    <option value="Ohm" selected="selected">Ω</option>
                     <option value="KOhm">KΩ</option>
                     <option value="MOhm">MΩ</option>
                 </select><br>
-                <button>R7</button><input type="number" name="valR7">
-                <select name="multiploOhmR7" id="mOhmR7">
+                <button>R<sub>7</sub></button><input type="number" name="valR" onchange="CalcularParalelo()">
+                <select name="multiploOhmR" id="mOhmR7" onchange="CalcularParalelo()">
                     <option value="mOhm">mΩ</option>
-                    <option value="Ohm">Ω</option>
-                    <option value="KOhm">KΩ</option>
-                    <option value="MOhm">MΩ</option>
-                </select><br>
-                <button>R8</button><input type="number" name="valR8">
-                <select name="multiploOhmR8" id="mOhmR8">
-                    <option value="mOhm">mΩ</option>
-                    <option value="Ohm">Ω</option>
+                    <option value="Ohm" selected="selected">Ω</option>
                     <option value="KOhm">KΩ</option>
                     <option value="MOhm">MΩ</option>
                 </select><br>
             </div>
             <div class="FemCorrientes" style="float: inside">
                 <div class="DivFem" style="padding: 0.5%;">
-                    <h3>fem 1</h3><br>
-                    <button class="buttonMas" style="width: 75px; height: 35px; margin-bottom: 1%; border-radius: 2px;"><h1>+</h1></button><br>
-                    <input type="number" name="Valfem1" style="width: 40px">
+                    <h3>fem</h3><br>
+                    <button id="buttonMas" onclick="CambiarVoltajeP(this.id)" style="width: 75px; height: 35px; margin-bottom: 1%; border-radius: 2px;"><h1>+</h1></button><br>
+                    <input type="number" id="valfem1" value="10" onchange="CalcularParalelo()" style="width: 40px">
                     <button style="width: 25px; height: 20px;">[V]</button><br>
-                    <button class="buttonMenos" style="width: 75px; height: 35px; margin-top: 1%; border-radius: 2px;"><h1>-</h1></button><br>
-                    Req=<input type="number" name="Req" style="width: 40px">
+                    <button id="buttonMenos" onclick="CambiarVoltajeP(this.id)" style="width: 75px; height: 35px; margin-top: 1%;border-radius: 2px;"><h1>-</h1></button><br>
+                    R<sub>eq</sub><input type="number" id="Req" style="width: 50px">
                     <button style="width: 25px; height: 20px;">[Ω]</button><br>
                 </div>
                 <div class="DivCorrientes">
-                    <button>I1</button><input type="number" name="valI1"><br>
-                    <button>I2</button><input type="number" name="valI2"><br>
-                    <button>I3</button><input type="number" name="valI3"><br>
-                    <button>I4</button><input type="number" name="valI4"><br>
-                    <button>I5</button><input type="number" name="valI5"><br>
-                    <button>I6</button><input type="number" name="valI6"><br>
-                    <button>I7</button><input type="number" name="valI7"><br>
-                    <button>I8</button><input type="number" name="valI8"><br>
+                    <button>I<sub>T</sub></button><input type="number" id="valIt">[A]<br>
+                    <button>I<sub>1</sub></button><input type="number" name="valI">[A]<br>
+                    <button>I<sub>2</sub></button><input type="number" name="valI">[A]<br>
+                    <button>I<sub>3</sub></button><input type="number" name="valI">[A]<br>
+                    <button>I<sub>4</sub></button><input type="number" name="valI">[A]<br>
+                    <button>I<sub>5</sub></button><input type="number" name="valI">[A]<br>
+                    <button>I<sub>6</sub></button><input type="number" name="valI">[A]<br>
+                    <button>I<sub>7</sub></button><input type="number" name="valI">[A]<br>
                 </div>
             </div>
         </div>
