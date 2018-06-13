@@ -95,6 +95,10 @@ function CalcularSerie() {
 
     CircuitoSerie("canvasSerie", 30, 50, 10, resistencias);
 
+    //drawArrowhead(60,90,Math.PI,20,20);
+    DibujarFlecha("canvasSerie", 0,0,0,0);
+
+
 }
 
 function CambiarVoltaje(boton) {
@@ -319,5 +323,50 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
 
 
 
+}
+
+function DibujarFlecha(canv, x0, y0, d, ang){
+    var canvas = document.getElementById(canv);
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+        //ctx.rect(70,90,20,20);
+
+        ctx.moveTo(70,130);
+        //                 vertice/extremo
+        ctx.quadraticCurveTo(70,90,110,90);
+        ctx.stroke();
+        drawArrowhead(110,90,Math.PI,15,10);
+
+    }
+
+
+}
+
+function drawArrowhead(locx, locy, angle, sizex, sizey) {
+
+    var canvas = document.getElementById("canvasSerie");
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+
+        var hx = sizex / 2;
+        var hy = sizey / 2;
+
+        ctx.translate((locx), (locy));
+        ctx.rotate(angle);
+        ctx.translate(-hx, -hy);
+
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, 1 * sizey);
+        ctx.lineTo(1 * sizex, 1 * hy);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.translate(hx, hy);
+        ctx.rotate(-angle);
+        ctx.translate(-locx, -locy);
+    }
 }
 
