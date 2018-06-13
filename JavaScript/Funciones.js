@@ -247,11 +247,6 @@ function DibujarResistencia(canv, x0, y0, d){
     if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
 
-        //ctx.scale(0.5,0.5);
-        //ctx.clearRect(0,0,width,height);
-
-        //var d = 10;
-
         var x = [], y = [];
         x[0] = x0, y[0] = y0 - 3*d;
 
@@ -274,18 +269,6 @@ function DibujarResistencia(canv, x0, y0, d){
         ctx.lineTo(x[7],y[3]);
         ctx.closePath();
         ctx.stroke();
-
-
-        /*ctx.moveTo(x0,y3);
-        ctx.lineTo(x8,y3); ctx.moveTo(x8,y3);
-
-        ctx.lineTo(x2, y1); ctx.moveTo(x2,y1);
-        ctx.lineTo(x3,y5); ctx.moveTo(x3,y5);
-        ctx.lineTo(x4,y1); ctx.moveTo(x4,y1);
-        ctx.lineTo(x5,y5); ctx.moveTo(x5,y5);
-
-        ctx.lineTo(x9,y3); ctx.moveTo(x9,y3);
-        ctx.lineTo(x7,y3);*/
     }
 }
 
@@ -301,31 +284,29 @@ function DibujarResistencia(canv, x0, y0, d){
 
 function DibujarResistenciaParl(canv, x0, y0, d){
     var canvas = document.getElementById(canv);
-    var width = canvas.width;
-    var height = canvas.height;
 
     if (canvas.getContext) {
         var ctx = canvas.getContext('2d');
 
         var x = [], y = [];
-        x[0] = x0 + 4*d, y[0] = y0 + 2.5*d;
+        x[0] = x0 + 4*d, y[0] = y0 + 6*d;
 
-        for(i=1;i<12;i++){
+        for(i=1;i<8;i++){
             x[i] = x[i-1] + d;
             y[i] = y[i-1] + d;
         }
-
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo(x[3],y[3]);  // Rayita de arriba
-        ctx.lineTo(x[3],y[5]); ctx.moveTo(x[3],y[5]);
-        ctx.lineTo(x[2],(y[5]+y[6])/2);
-        ctx.lineTo(x[4],y[6]); ctx.moveTo(x[4],y[6]);
-        ctx.lineTo(x[2],y[7]); ctx.moveTo(x[2],y[7]);
-        ctx.lineTo(x[4],(y[7]+y[8])/2); ctx.moveTo(x[4],(y[7]+y[8])/2);
-        ctx.lineTo(x[2],(y[8]+y[9])/2); ctx.moveTo(x[2],(y[8]+y[9])/2);
-        ctx.lineTo(x[3],y[9]); ctx.moveTo(x[3],y[9]);
-        ctx.lineTo(x[3],y[11]); ctx.moveTo(x[3],y[11]);
+        ctx.moveTo(x[3],y[0]);
+        ctx.lineTo(x[3],(y[2]+y[1])/2); ctx.moveTo(x[3],(y[2]+y[1])/2);
+
+        ctx.lineTo(x[4], y[2]); ctx.moveTo(x[4],y[2]);
+        ctx.lineTo(x[2],y[3]); ctx.moveTo(x[2],y[3]);
+        ctx.lineTo(x[4],y[4]); ctx.moveTo(x[4],y[4]);
+        ctx.lineTo(x[2],y[5]); ctx.moveTo(x[2],y[5]);
+
+        ctx.lineTo(x[3],(y[6]+y[5])/2); ctx.moveTo(x[3],(y[6]+y[5])/2);
+        ctx.lineTo(x[3],y[7]);
         ctx.closePath();
         ctx.stroke();
     }
@@ -430,38 +411,6 @@ function DibujarLinea(canv, x0, y0, d, orient){
     }
 }
 
-function cuadricula(canv) {
-    var canvas = document.getElementById(canv);
-
-    if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
-
-        var d = 10;
-        var x = [], y = [];
-        x[0] = 50, y[0] = 100;
-
-        for(i=1;i<8;i++){
-            x[i] = x[i-1] + d;
-            y[i] = y[i-1] + d;
-        }
-
-        ctx.lineWidth = 0.5;
-        ctx.beginPath();
-
-        for(i=0; i<8;i++){
-            ctx.moveTo(x[i], y[0]);
-            ctx.lineTo(x[i], y[7]);
-        }
-        for(i=0; i<8; i++){
-            ctx.moveTo(x[0], y[i]);
-            ctx.lineTo(x[7], y[i]);
-        }
-        ctx.closePath();
-        ctx.stroke();
-
-    }
-}
-
 /**
  * Dibuja un texto en un punto especifico dentro de un canvas.
  * @method Grafico de un texto en canvas.
@@ -496,7 +445,11 @@ function text(canv, x0, y0, d, text) {
  */
 
 function CircuitoSerie(canv, x0, y0, d, resis) {
-
+    let canvas = document.getElementById(canv);
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+    }
     var x = [], y =[];
     x[0]=x0;
     y[0]=y0
@@ -504,14 +457,15 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
         x[i] = x[i-1] + (6*d);
         y[i] = y[i-1] + (6*d);
     }
-    for(var t=0;t<7;t++){
-        //DibujarResistencia(canv,x[i],y0,d);
-    }
 
-    for(var j=0;j<7;j++){
-        DibujarResistencia(canv, x[j], y[0], d);
-        text(canv, x[j], y[0] - d*2, d, "R" + (j+1));
-        text(canv, x[j], y[0] + d*3, d, "V" + (j+1));
+    for(var j=0;j<7;j++){       // Dibujo las resistencias dependiendo si el valor es distinto de cero.
+        if(resis[j] != 0){
+            DibujarResistencia(canv, x[j], y[0], d);
+            text(canv, x[j], y[0] - d*2, d, "R" + (j+1));
+            text(canv, x[j], y[0] + d*3, d, "V" + (j+1));
+        }else{
+            DibujarLinea(canv, x[j], y[0] - d, d, "h");
+        }
         DibujarLinea(canv, x[j], y[3], d, "h");
     }
 
@@ -538,6 +492,12 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
  */
 
 function CircuitoParalelo(canv, x0, y0, d, resis) {
+    let canvas = document.getElementById(canv);
+    if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+    }
+
     var x = [], y = [];
     x[0] = x0;
     y[0] = y0
@@ -545,29 +505,25 @@ function CircuitoParalelo(canv, x0, y0, d, resis) {
         x[i] = x[i - 1] + (6 * d);
         y[i] = y[i - 1] + (6 * d);
     }
-    for (var t = 0; t < 7; t++) {
-        //DibujarResistencia(canv,x[i],y0,d);
-    }
 
-    for (var j = 0; j < 7; j++) {
-        DibujarResistenciaParl(canv, x[j], y[0], d);
-        DibujarLinea(canv, x[j], y[0] - 1 * d, d, "h");
+    var temp =0;
+    for (var j = 6; j >= 0; j--) {
+
+        if(resis[j] != 0){
+            DibujarLinea(canv, x[7-temp] + 1 * d, y[0], d, "v");
+            DibujarLinea(canv, x[7-temp] + 1 * d, y[2], d, "v");
+            DibujarResistenciaParl(canv, x[6-temp], y[0], d);
+            text(canv, x[6-temp] + d * 6, y[0] + d * 10, d, "R" + (j + 1));
+            temp += 1;
+        }
         DibujarLinea(canv, x[j], y[3], d, "h");
-        text(canv, x[j] + d * 6, y[0] + d * 10, d, "R" + (j + 1));
+        DibujarLinea(canv, x[j], y[0] - d, d, "h");
     }
 
     DibujarLinea(canv, x[0], y[0], d, "v");
     DibujarFem(canv, x[0], y[1], d);
     text(canv, x[0] - 2 * d, y[1] + d, d, "fem");
     DibujarLinea(canv, x[0], y[2], d, "v");
-
-    for (i = 1; i < 8; i++) {
-        DibujarLinea(canv, x[i] + 1 * d, y[0], d, "v");
-    }
-
-    for (i = 1; i < 8; i++) {
-        DibujarLinea(canv, x[i] + 1 * d, y[2], d, "v");
-    }
 }
 
 /**
@@ -592,7 +548,7 @@ function DibujarFlecha(canv, x0, y0, d, ang){
         //                 vertice/extremo
         ctx.quadraticCurveTo(70,90,110,90);
         ctx.stroke();
-        drawArrowhead(110,90,Math.PI,15,10);
+        drawArrowhead(110,90,Math.PI*0,15,10);
 
     }
 
