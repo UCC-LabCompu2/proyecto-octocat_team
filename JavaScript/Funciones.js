@@ -1,8 +1,10 @@
 
 
 /**
- * Esta funcion calcula la corriente total y el valor de cada diferencia de potencial en las resistencias.
- * @method Calculo de las resistencias ingresadas
+ * Esta funcion calcula la corriente total y la resistencia equivalente y el valor de cada diferencia de potencial
+ * en las resistencias y los ubica en su respectivo casillero.
+ * @method Calculo de Req, It, y diferencias de potencial en cada resistencia
+ * @param No hay parametros
  * @return No hay retorno de valores
  */
 
@@ -101,6 +103,14 @@ function CalcularSerie() {
 
 }
 
+/**
+ * Esta funcion calcula la corriente total y la resistencia equivalente y el valor de cada corriente
+ * en las resistencias y los ubica en su respectivo casillero.
+ * @method Calculo de Req, It, y corriente en cada resistencia
+ * @param No hay parametros
+ * @return No hay retorno de valores
+ */
+
 function CalcularParalelo() {
     var valor = [];
     var multiplicador = [];
@@ -120,9 +130,7 @@ function CalcularParalelo() {
         }else{
             valor[i] = 0;
         }
-        //alert(valor)
     }
-    //alert(valor);
     for(i=0; i<7; i++){
         sel = document.getElementsByName("multiploOhmR")[i];
         switch(sel.options[sel.selectedIndex].value){
@@ -173,28 +181,15 @@ function CalcularParalelo() {
         document.getElementsByName("valI")[i].value = (fem / resistencias[i]).toFixed(3);
     }
 
-    //DibujarResistencia("canvasSerie", 20, 20, 10);
-    //DibujarFem("canvasSerie", 0, 0, 10);
-    //DibujarLinea("canvasSerie", 0, 0, 10);
-    //cuadricula("canvasSerie");
-
-    var x0=20, y0=20, d=10;
-
-    for(i=0; i<7; i++){
-        if(valor[i] =! 0){
-            var x4 = x0 + (i  * d);
-            //DibujarResistencia("canvasSerie", x4, y0, d);
-            //alert(""+x4);
-            //alert(valor);
-        }
-        else {
-            DibujarLinea("canvasParalelo", x0 + (i) * d);
-            alert("HOLA")
-        }
-    }
-
     CircuitoParalelo("canvasParalelo", 30, 50, 10, resistencias);
 }
+
+/**
+ * Esta funcion varia el valor de la fem en circuito serie de a una unidad dependiendo el boton que se clickee.
+ * @method Variacion del valor de la fem
+ * @param boton {string} id del boton presionado
+ * @return No hay retorno de valores
+ */
 
 function CambiarVoltaje(boton) {
 
@@ -209,6 +204,13 @@ function CambiarVoltaje(boton) {
     inputFem.value = num;
     CalcularSerie();
 }
+
+/**
+ * Esta funcion varia el valor de la fem en circuito paralelo de a una unidad dependiendo el boton que se clickee.
+ * @method Variacion del valor de la fem
+ * @param boton {string} id del boton presionado
+ * @return No hay retorno de valores
+ */
 
 function CambiarVoltajeP(boton) {
 
@@ -225,6 +227,16 @@ function CambiarVoltajeP(boton) {
 }
 
 //CANVAS
+
+/**
+ * Dibuja una resistencia en un punto especifico dentro de un canvas.
+ * @method Grafico de Resistencia horizontal en canvas.
+ * @param canv {string} id del canvas a dibujar
+ * @param x0 {int} valor en X del punto inicial
+ * @param y0 {int} valor en Y del punto inicial
+ * @param d {int} tamano de la escala
+ * @return No hay retorno de valores
+ */
 
 function DibujarResistencia(canv, x0, y0, d){
     var canvas = document.getElementById(canv);
@@ -277,6 +289,16 @@ function DibujarResistencia(canv, x0, y0, d){
     }
 }
 
+/**
+ * Dibuja una resistencia en un punto especifico dentro de un canvas.
+ * @method Grafico de Resistencia vertical en canvas.
+ * @param canv {string} id del canvas a dibujar
+ * @param x0 {int} valor en X del punto inicial
+ * @param y0 {int} valor en Y del punto inicial
+ * @param d {int} tamano de la escala
+ * @return No hay retorno de valores
+ */
+
 function DibujarResistenciaParl(canv, x0, y0, d){
     var canvas = document.getElementById(canv);
     var width = canvas.width;
@@ -308,6 +330,16 @@ function DibujarResistenciaParl(canv, x0, y0, d){
         ctx.stroke();
     }
 }
+
+/**
+ * Dibuja una fuente de C.C. en un punto especifico dentro de un canvas.
+ * @method Grafico de una fem en canvas.
+ * @param canv {string} id del canvas a dibujar
+ * @param x0 {int} valor en X del punto inicial
+ * @param y0 {int} valor en Y del punto inicial
+ * @param d {int} tamano de la escala
+ * @return No hay retorno de valores
+ */
 
 function DibujarFem(canv, x0, y0, d) {
     var canvas = document.getElementById(canv);
@@ -351,6 +383,17 @@ function DibujarFem(canv, x0, y0, d) {
 
 
 }
+
+/**
+ * Dibuja una linea en un punto especifico dentro de un canvas.
+ * @method Grafico de linea horizontal o vertical en canvas.
+ * @param canv {string} id del canvas a dibujar
+ * @param x0 {int} valor en X del punto inicial
+ * @param y0 {int} valor en Y del punto inicial
+ * @param d {int} tamano de la escala
+ * @param orient {string} valor del a orientacion de la linea
+ * @return No hay retorno de valores
+ */
 
 function DibujarLinea(canv, x0, y0, d, orient){
     var canvas = document.getElementById(canv);
@@ -419,6 +462,17 @@ function cuadricula(canv) {
     }
 }
 
+/**
+ * Dibuja un texto en un punto especifico dentro de un canvas.
+ * @method Grafico de un texto en canvas.
+ * @param canv {string} id del canvas a dibujar
+ * @param x0 {int} valor en X del punto inicial
+ * @param y0 {int} valor en Y del punto inicial
+ * @param d {int} tamano de la escala
+ * @param text {string} texto a dibujar
+ * @return No hay retorno de valores
+ */
+
 function text(canv, x0, y0, d, text) {
     var canvas = document.getElementById(canv);
 
@@ -429,6 +483,17 @@ function text(canv, x0, y0, d, text) {
         ctx.fillText(text, x0 + 2.5*d, y0);
     }
 }
+
+/**
+ * Dibuja un circuito de resistencias en serie en un punto especifico dentro de un canvas.
+ * @method Grafico de un circuito de resistencias en serie en canvas.
+ * @param canv {string} id del canvas a dibujar
+ * @param x0 {int} valor en X del punto inicial
+ * @param y0 {int} valor en Y del punto inicial
+ * @param d {int} tamano de la escala
+ * @param resis {array} arreglo con el valor de cada resistencia
+ * @return No hay retorno de valores
+ */
 
 function CircuitoSerie(canv, x0, y0, d, resis) {
 
@@ -460,6 +525,17 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
     DibujarLinea(canv, x[7] + 1*d, y[2], d, "v");
 
 }
+
+/**
+ * Dibuja un circuito de resistencias en paralelo en un punto especifico dentro de un canvas.
+ * @method Grafico de un circuito de resistencias en paralelo en canvas.
+ * @param canv {string} id del canvas a dibujar
+ * @param x0 {int} valor en X del punto inicial
+ * @param y0 {int} valor en Y del punto inicial
+ * @param d {int} tamano de la escala
+ * @param resis {array} arreglo con el valor de cada resistencia
+ * @return No hay retorno de valores
+ */
 
 function CircuitoParalelo(canv, x0, y0, d, resis) {
     var x = [], y = [];
@@ -494,6 +570,17 @@ function CircuitoParalelo(canv, x0, y0, d, resis) {
     }
 }
 
+/**
+ * Dibuja una flecha curva en un punto especifico dentro de un canvas.
+ * @method Grafico de una flecha curva en canvas.
+ * @param canv {string} id del canvas a dibujar
+ * @param x0 {int} valor en X del punto inicial
+ * @param y0 {int} valor en Y del punto inicial
+ * @param d {int} tamano de la escala
+ * @param ang {array} angulo de la curva de la flecha
+ * @return No hay retorno de valores
+ */
+
 function DibujarFlecha(canv, x0, y0, d, ang){
     var canvas = document.getElementById(canv);
     if (canvas.getContext) {
@@ -511,6 +598,17 @@ function DibujarFlecha(canv, x0, y0, d, ang){
 
 
 }
+
+/**
+ * Dibuja una punta de flecha en un punto especifico dentro de un canvas.
+ * @method Grafico de un circuito de resistencias en serie en canvas.
+ * @param locx {int} valor en X del punto inicial
+ * @param locy {int} valor en Y del punto inicial
+ * @param angle {int} angulo del sentido de la flecha
+ * @param sizex {int} largo de la punta de flecha
+ * @param sizey {int} ancho de la punta de flecha
+ * @return No hay retorno de valores
+ */
 
 function drawArrowhead(locx, locy, angle, sizex, sizey) {
 
