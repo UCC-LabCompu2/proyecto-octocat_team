@@ -56,20 +56,41 @@ body{
     margin-right: auto;
     margin-top: 1%;
     margin-bottom: 0.5%;
-    padding-bottom: 1.5%;
+
+    padding-bottom: 0.6%;
     background-color: lightskyblue;
     border: solid 2px darkorange;
     border-radius: 20px;
 }
 .ValResist{
-
+    float: initial;
     width: 35%;
     height: 90%;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     /*background-color: red;*/
     display: inline-block;
+
 }
+
+.ValResist > select{
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.ValResist > button{
+    border-radius: 5px;
+    width: 28px;
+    height: 23px;
+    font-weight: bold;
+}
+
+.ValResist > input{
+    border-radius: 5px;
+    height: 20px;
+}
+
 button{
     width: 40px;
     height: 15px;
@@ -78,34 +99,92 @@ button{
 }
 
 .FemCorrientes{
+
     width: 50%;
     height: 90%;
-    margin-top: 1%;
+    /*margin-top: 1%;*/
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
 }
 
 .DivFem{
+    padding: 0.5%;
     width: 30%;
     height: 90%;
     display: inline-block;
+    font-family: Arial, cursive;
 }
 .DivCorrientes{
     display: inline-block;
     width: 50%;
     height: 90%;
+    border-radius: 5px;
+
 }
 
-.buttonMas{
-    width: 75px;
+#buttonMas{
+    width: 90px;
     height: 35px;
     margin-bottom: 1%;
-    border-radius: 2px;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: bold;
 }
-.buttonMenos{
-    width: 75px;
+#buttonMenos{
+    width: 90px;
     height: 35px;
     margin-top: 1%;
-    border-radius: 2px;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#valfem1{
+    width: 55px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+#Req{
+    width: 65px;
+    height: 20px;
+    border-radius: 5px;
+
+}
+
+#supra{
+    font-family: Tahoma, cursive;
+    font-weight: bold;
+
+}
+
+#unidadOhm{
+    width: 25px;
+    height: 20px;
+    font-weight: bold;
+}
+
+#unidadV{
+    width: 25px;
+    height: 20px;
+    font-weight: bold;
+}
+
+.DivCorrientes > p > button{
+    border-radius: 5px;
+    width: 28px;
+    height: 23px;
+    font-weight: bold;
+}
+
+.DivCorrientes > p > input{
+    border-radius: 5px;
+    height: 20px;
+}
+
+#femTitulo{
+    font-family: Tahoma, cursive;
+    font-size: 20px;
 }
