@@ -593,3 +593,23 @@ function drawArrowhead(locx, locy, angle, sizex, sizey) {
     }
 }
 
+
+/**
+ * Función que redirecciones a las demas paginas del sitio web
+ * @method Usamos el Self ref
+ * @param Id correspondiente a cada pagina.
+ * @return No hay retorno de valores
+ */
+
+function Introhtml() {
+  self.location.href = 'Intro.html';
+}
+function CSeriehtml() {
+    self.location.href = 'CSerie.html';
+}
+function CParlhtml() {
+    self.location.href = 'CParalelo.html';
+}
+function Contachtml() {
+    self.location.href = 'contacto.html';
+}

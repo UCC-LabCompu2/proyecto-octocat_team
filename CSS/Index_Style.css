@@ -3,7 +3,6 @@
     margin: 0px;
     padding: 0px;
 }
-
 body{
     text-align: center;
     /*background-color: cornflowerblue;*/
@@ -29,7 +28,6 @@ body{
     /*background-color:cornflowerblue;*/
     border: 2px solid orange;
     border-radius: 20px;
-
     background: #1e5799;
     background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
@@ -39,27 +37,22 @@ body{
     -moz-box-shadow: 0px 3px 5px #000;
     -webkit-box-shadow: 0px 3px 5px #000;
 }
-
 .tituloh3{
     font-size: 36px;
     font-family: Calibri;
     color: black;
 }
-
 .parrafo {
     font-size: 22px;
     font-family: Calibri;
     text-align: justify;
     color:black;
 }
-
 .portada{
     border-radius: 7px;
     width: 583px;
     height: 335px;
 }
-
-
 .Intro{
     margin-top: 1%;
     padding: 1.225% 0.694%;
@@ -86,7 +79,6 @@ body{
     /*display: flex;*/
     justify-content: center;
     align-items: center;
-
 }
 .Selecciones{
     width: 98%;
@@ -94,9 +86,6 @@ body{
     padding-top: 1%;
     padding-bottom: 1%;
     background-color: cornflowerblue;
-
-}
-button.Op4{
 }
 .Selecciones > button{
     display: list-item;
@@ -104,12 +93,14 @@ button.Op4{
     /*background-color: transparent;*/
     font-size: large;
     padding: 3% 1%;
-    margin: 3% 5%;
+    margin: 10% 5%;
     border: 2px solid orange;
     border-radius: 20px;
     width: 90%;
     height: 150%;
-
+    font-family: Arial, cursive;
+    font-style: italic;
+    font-weight: bold;
 }
 .ImgContenedor{
     margin-bottom: 20%;
@@ -120,13 +111,14 @@ button.Op4{
     border-radius: 6px;
     padding: 45px 0px 0px 0px;
 }
-
 body div .Titulo{
     font-family: gelbertreg;;
     font-size: 20px;
     color: #000;
 }
-
 a {
     text-decoration: none;
+}
+article{
+    padding: 9px;
 }
