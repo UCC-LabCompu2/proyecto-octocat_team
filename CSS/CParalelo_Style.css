@@ -1,3 +1,4 @@
+@import url(fuentes.css);
 *{
     margin: 0px;
     padding: 0px;
@@ -6,7 +7,19 @@ body{
     text-align: center;
     background-color: aliceblue;
 }
-
+a {
+    text-decoration: none;
+    color: #1e5799;
+    font-family: gelbertreg;
+    font-size: 20px;
+    padding: 8px;
+}
+a:hover {text-decoration: underline;}
+ul li a:hover{
+    color: #fff;
+    background: #1798af;
+    text-decoration: none;
+}
 .General{
     height: 97%;
     width: 97%;
@@ -14,7 +27,12 @@ body{
 }
 
 .TituloParalelo{
-    background-color: lightskyblue;
+    /*background-color: lightskyblue;*/
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 14%, #2989d8 14%, #207cca 25%, #207cca 30%, #1e5799 55%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 14%,#2989d8 14%,#207cca 25%,#207cca 30%,#1e5799 55%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 14%,#2989d8 14%,#207cca 25%,#207cca 30%,#1e5799 55%,#7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
     width: 100%;
     height: 10%;
     padding-top: 2%;
@@ -24,6 +42,8 @@ body{
     border: solid 2px darkorange;
     border-radius: 20px;
     margin-top: 20px;
+    font-family: gelbertreg;
+    font-size: 20px;
 }
 
 .ContenidoParalelo{
