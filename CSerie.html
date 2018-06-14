@@ -21,76 +21,76 @@
                 <canvas id="canvasSerie" width="480" height="300">Tu navegador no soporta Canvas de HTML5</canvas>
             </div>
             <div class="DivCalculosSerie">
-                <div class="ValResist" style="float: start;">
-                    <button>R<sub>1</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
+                <div class="ValResist">
+                    <p></p><button>R<sub>1</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
                     <select name="multiploOhmR" id="mOhmR1" onchange="CalcularSerie()">
                         <option value="mOhm">mΩ</option>
                         <option value="Ohm" selected="selected">Ω</option>
                         <option value="KOhm">KΩ</option>
                         <option value="MOhm">MΩ</option>
-                    </select><br>
-                    <button>R<sub>2</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
+                    </select></p>
+                    <p></p><button>R<sub>2</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
                     <select name="multiploOhmR" id="mOhmR2" onchange="CalcularSerie()">
                         <option value="mOhm">mΩ</option>
                         <option value="Ohm" selected="selected">Ω</option>
                         <option value="KOhm">KΩ</option>
                         <option value="MOhm">MΩ</option>
-                    </select><br>
-                    <button>R<sub>3</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
+                    </select></p>
+                    <p></p><button>R<sub>3</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
                     <select name="multiploOhmR" id="mOhmR3" onchange="CalcularSerie()">
                         <option value="mOhm">mΩ</option>
                         <option value="Ohm" selected="selected">Ω</option>
                         <option value="KOhm">KΩ</option>
                         <option value="MOhm">MΩ</option>
-                    </select><br>
-                    <button>R<sub>4</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
+                    </select></p>
+                    <p></p><button>R<sub>4</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
                     <select name="multiploOhmR" id="mOhmR4" onchange="CalcularSerie()">
                         <option value="mOhm">mΩ</option>
                         <option value="Ohm" selected="selected">Ω</option>
                         <option value="KOhm">KΩ</option>
                         <option value="MOhm">MΩ</option>
-                    </select><br>
-                    <button>R<sub>5</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
+                    </select></p>
+                    <p></p><button>R<sub>5</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
                     <select name="multiploOhmR" id="mOhmR5" onchange="CalcularSerie()">
                         <option value="mOhm">mΩ</option>
                         <option value="Ohm" selected="selected">Ω</option>
                         <option value="KOhm">KΩ</option>
                         <option value="MOhm">MΩ</option>
-                    </select><br>
-                    <button>R<sub>6</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
-                    <select name="multiploOhmR" id="mOhmR6" onchange="CalcularSerie()">
+                    </select></p>
+                    <p></p><button>R<sub>6</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
+                    <select name="multiploOhmR" id="mOhmR4" onchange="CalcularSerie()">
                         <option value="mOhm">mΩ</option>
                         <option value="Ohm" selected="selected">Ω</option>
                         <option value="KOhm">KΩ</option>
                         <option value="MOhm">MΩ</option>
-                    </select><br>
-                    <button>R<sub>7</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
+                    </select></p>
+                    <p></p><button>R<sub>7</sub></button><input type="number" name="valR" onchange="CalcularSerie()">
                     <select name="multiploOhmR" id="mOhmR7" onchange="CalcularSerie()">
                         <option value="mOhm">mΩ</option>
                         <option value="Ohm" selected="selected">Ω</option>
                         <option value="KOhm">KΩ</option>
                         <option value="MOhm">MΩ</option>
-                    </select><br>
+                    </select></p>
                 </div>
-                <div class="FemCorrientes" style="float: inside">
-                    <div class="DivFem" style="padding: 0.5%;">
-                        <h3>fem</h3><br>
-                        <button id="buttonMas" onclick="CambiarVoltaje(this.id)" style="width: 75px; height: 35px; margin-bottom: 1%; border-radius: 2px;"><h1>+</h1></button><br>
-                        <input type="number" id="valfem1" value="10" onchange="CalcularSerie()" style="width: 40px">
-                        <button style="width: 25px; height: 20px;">[V]</button><br>
-                        <button id="buttonMenos" onclick="CambiarVoltaje(this.id)" style="width: 75px; height: 35px; margin-top: 1%;border-radius: 2px;"><h1>-</h1></button><br>
-                        R<sub>eq</sub><input type="number" id="Req" style="width: 50px">
-                        <button style="width: 25px; height: 20px;">[Ω]</button><br>
+                <div class="FemCorrientes">
+                    <div class="DivFem" >
+                        <p id="femTitulo">fem</p>
+                        <p><button id="buttonMas" onclick="CambiarVoltaje(this.id)" >+</button></p>
+                        <p><input type="number" id="valfem1" value="10" onchange="CalcularSerie()">
+                            <button id="unidadV" ><span>[V]</span></button></p>
+                        <p><button id="buttonMenos" onclick="CambiarVoltaje(this.id)" >-</button></p>
+                        <p id="supra"><span>R<sub>eq</sub></span></p>
+                        <p><input type="number" id="Req"><button id="unidadOhm" >[Ω]</button></p>
                     </div>
                     <div class="DivCorrientes">
-                        <button>I<sub>T</sub></button><input type="number" id="valIt">[A]<br>
-                        <button>V<sub>1</sub></button><input type="number" name="valV">[V]<br>
-                        <button>V<sub>2</sub></button><input type="number" name="valV">[V]<br>
-                        <button>V<sub>3</sub></button><input type="number" name="valV">[V]<br>
-                        <button>V<sub>4</sub></button><input type="number" name="valV">[V]<br>
-                        <button>V<sub>5</sub></button><input type="number" name="valV">[V]<br>
-                        <button>V<sub>6</sub></button><input type="number" name="valV">[V]<br>
-                        <button>V<sub>7</sub></button><input type="number" name="valV">[V]<br>
+                        <p><button>I<sub>T</sub></button><input type="number" id="valIt">[A]</p>
+                        <p><button>V<sub>1</sub></button><input type="number" name="valV">[V]</p>
+                        <p><button>V<sub>2</sub></button><input type="number" name="valV">[V]</p>
+                        <p><button>V<sub>3</sub></button><input type="number" name="valV">[V]</p>
+                        <p><button>V<sub>4</sub></button><input type="number" name="valV">[V]</p>
+                        <p><button>V<sub>5</sub></button><input type="number" name="valV">[V]</p>
+                        <p><button>V<sub>6</sub></button><input type="number" name="valV">[V]</p>
+                        <p><button>V<sub>7</sub></button><input type="number" name="valV">[V]</p>
                     </div>
                 </div>
             </div>
