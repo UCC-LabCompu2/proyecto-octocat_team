@@ -25,7 +25,8 @@ function CalcularSerie() {
     for(i=0; i < 7; i++) {
         valor[i] = document.getElementsByName("valR")[i].value;
         if(valor[i] < 0 /*Agregar comprobacion solo numeros.*/){
-            alert("El valor de la resistencia " + i + " es invalido. Por favor verifique los datos.")
+            alert("El valor de la resistencia " + (i+1) + " es invalido. Por favor verifique los datos.")
+            document.getElementsByName("valR")[i].value = "";
         }else if (valor[i] >= 0){
 
         }else{
@@ -53,7 +54,6 @@ function CalcularSerie() {
                 multiplicador[i] = 1;
                 break;
         }
-
     }
 
     for(i=0 ; i<7; i++){
@@ -79,19 +79,12 @@ function CalcularSerie() {
         document.getElementsByName("valV")[i].value = (It * resistencias[i]).toFixed(3);
     }
 
-    //DibujarResistencia("canvasSerie", 20, 20, 10);
-    //DibujarFem("canvasSerie", 0, 0, 10);
-    //DibujarLinea("canvasSerie", 0, 0, 10);
-    //cuadricula("canvasSerie");
-
     var x0=20, y0=20, d=10;
 
     for(i=0; i<7; i++){
         if(valor[i] =! 0){
             var x4 = x0 + (i  * d);
-            //DibujarResistencia("canvasSerie", x4, y0, d);
-            //alert(""+x4);
-            //alert(valor);
+
         }
         else {
             DibujarLinea("canvasSerie", x0 + (i) * d);
@@ -99,11 +92,9 @@ function CalcularSerie() {
         }
     }
 
-   
-	
 	if(interval)
 		clearInterval(interval);
-	
+
 	interval = setInterval(function() {  CircuitoSerie("canvasSerie", 30, 50, 10, resistencias); }, 1);
 
 }
@@ -155,7 +146,6 @@ function CalcularParalelo() {
                 multiplicador[i] = 1;
                 break;
         }
-
     }
 
     for(i=0 ; i<7; i++){
@@ -193,9 +183,8 @@ function CalcularParalelo() {
      	xm[i-1] = 0;
 		ym[i-1] = 50;
     }
-	
+	//Modificamos el llamado de canvasParalelo aplicando un setInterval para la animación:
 	interval = setInterval(function() { CircuitoParalelo("canvasParalelo", 30, 50, 10, resistencias); }, 1);
-	
 }
 
 /**
@@ -375,8 +364,6 @@ function DibujarFem(canv, x0, y0, d) {
         ctx.closePath();
         ctx.stroke();
     }
-
-
 }
 
 /**
@@ -492,7 +479,7 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
     DibujarLinea(canv, x[7] + 1*d, y[1], d, "v");
     DibujarLinea(canv, x[7] + 1*d, y[2], d, "v");
 	
-	        			
+	//Agregamos ANIMACION de la fecla representando las corrientes:
 			if(xs < canvas.width-20 && ys == 50){
 				dibujarFlecha(xs, ys, 1, "canvasSerie");
 				xs++;
@@ -506,7 +493,6 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
 				dibujarFlecha(xs, ys, 4, "canvasSerie");
 				ys--;
 			}
-
 }
 
 /**
@@ -539,9 +525,7 @@ function CircuitoParalelo(canv, x0, y0, d, resis) {
     var temp =0;
     for (var j = 7; j > 0; j--) {
 	
-			
-		
-        if(resis[j-1] != 0){	
+        if(resis[j-1] != 0){
 			
 			if(xm[j-1] < x[7-temp]+9 && ym[j-1] == 50){
 				dibujarFlecha(xm[j-1], ym[j-1], 1, "canvasParalelo");
@@ -564,8 +548,7 @@ function CircuitoParalelo(canv, x0, y0, d, resis) {
             temp += 1;
         
         }
-		
-		
+
 		DibujarLinea(canv, x[j-1], y[3], d, "h");
         DibujarLinea(canv, x[j-1], y[0] - d, d, "h");
     }
@@ -576,74 +559,6 @@ function CircuitoParalelo(canv, x0, y0, d, resis) {
     DibujarLinea(canv, x[0], y[2], d, "v");	
 	
 }
-
-/**
- * Dibuja una flecha curva en un punto especifico dentro de un canvas.
- * @method Grafico de una flecha curva en canvas.
- * @param canv {string} id del canvas a dibujar
- * @param x0 {int} valor en X del punto inicial
- * @param y0 {int} valor en Y del punto inicial
- * @param d {int} tamano de la escala
- * @param ang {array} angulo de la curva de la flecha
- * @return No hay retorno de valores
- */
-
-function DibujarFlecha(canv, x0, y0, d, ang){
-    var canvas = document.getElementById(canv);
-    if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
-
-        //ctx.rect(70,90,20,20);
-
-        ctx.moveTo(70,130);
-        //                 vertice/extremo
-        ctx.quadraticCurveTo(70,90,110,90);
-        ctx.stroke();
-        drawArrowhead(110,90,Math.PI*0,15,10);
-
-    }
-
-
-}
-
-/**
- * Dibuja una punta de flecha en un punto especifico dentro de un canvas.
- * @method Grafico de un circuito de resistencias en serie en canvas.
- * @param locx {int} valor en X del punto inicial
- * @param locy {int} valor en Y del punto inicial
- * @param angle {int} angulo del sentido de la flecha
- * @param sizex {int} largo de la punta de flecha
- * @param sizey {int} ancho de la punta de flecha
- * @return No hay retorno de valores
- */
-
-function drawArrowhead(locx, locy, angle, sizex, sizey) {
-
-    var canvas = document.getElementById("canvasSerie");
-    if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
-
-
-        var hx = sizex / 2;
-        var hy = sizey / 2;
-
-        ctx.translate((locx), (locy));
-        ctx.rotate(angle);
-        ctx.translate(-hx, -hy);
-
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(0, 1 * sizey);
-        ctx.lineTo(1 * sizex, 1 * hy);
-        ctx.closePath();
-        ctx.fill();
-
-        ctx.translate(hx, hy);
-        ctx.rotate(-angle);
-        ctx.translate(-locx, -locy);
-    }
-}
-
 
 /**
  * Función que redirecciones a las demas paginas del sitio web
@@ -666,18 +581,23 @@ function Contachtml() {
 }
 
 
+/**
+ * Dibuja una flecha en un punto especifico dentro de un canvas.
+ * @method Grafico de una flecha en canvas.
+ * @param chanvas {string} id del canvas a dibujar.
+ * @param x {int} valor en X del punto inicial
+ * @param y {int} valor en Y del punto inicial
+ * @param r {int} Representa recorrido de la felcha: r=1 superior, r=2 derecha, r=3 Inferior, r=4 Izquierdo.
+ * @return No hay retorno de valores
+ */
 
 function dibujarFlecha(x, y, r, chanvas) {
     var colors = ["#000000", "#ffffff", "#ffcc00"];
     var ctx = document.getElementById(chanvas).getContext("2d");
-    /*ctx.lineWidth = 1;*/
+
     ctx.strokeStyle = "red";
     ctx.fillStyle = "red";
-    /*ctx.setTransform(1, 0, 0, 1, 20, 0);*/
-    // small
-    /*ctx.translate(100, 100);*/
-    /*ctx.beginPath();*/
-	
+
 	if(r == 1){
 		ctx.arrow(x, y, x+20, y, [0, 2, -15, 2, -15, 8]);
 	}else if(r == 2){
@@ -687,8 +607,7 @@ function dibujarFlecha(x, y, r, chanvas) {
 	}else if(r == 4){
 		ctx.arrow(x, y, x, y-20, [0, 2, -15, 2, -15, 8]);
 	}
-    /*ctx.translate(50,0);*/
-    /*ctx.setTransform(1,0,0,1,i,0);*/
+
     ctx.fill();
 	ctx.strokeStyle = "black";
     ctx.fillStyle = "black";
