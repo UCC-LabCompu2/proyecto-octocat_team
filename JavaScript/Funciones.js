@@ -25,7 +25,7 @@ function CalcularSerie() {
     for(i=0; i < 7; i++) {
         valor[i] = document.getElementsByName("valR")[i].value;
         if(valor[i] < 0 /*Agregar comprobacion solo numeros.*/){
-            alert("El valor de la resistencia " + (i+1) + " es invalido. Por favor verifique los datos.")
+            alert("El valor de la resistencia " + (i+1) + " es invalido. Por favor verifique los datos.");
             document.getElementsByName("valR")[i].value = "";
         }else if (valor[i] >= 0){
 
@@ -68,35 +68,32 @@ function CalcularSerie() {
 
     if(Req > 0) {
         It = fem / Req;
+        document.getElementById("valIt").value = It.toFixed(3);
+        document.getElementById("Req").value = Req.toFixed(3);
+        for(i=0; i<7; i++){
+            document.getElementsByName("valV")[i].value = (It * resistencias[i]).toFixed(3);
+        }
+
+        var x0=20, y0=20, d=10;
+
+        for(i=0; i<7; i++){
+            if(valor[i] =! 0){
+                var x4 = x0 + (i  * d);
+
+            }
+            else {
+                DibujarLinea("canvasSerie", x0 + (i) * d);
+                alert("HOLA")
+            }
+        }
+
+        if(interval)
+            clearInterval(interval);
+
+        interval = setInterval(function() {  CircuitoSerie("canvasSerie", 30, 50, 10, resistencias); }, 1);
     }else {
-        alert("Valor de resistencias invalidos.")
+        alert("Valor de resistencias invalidos.");
     }
-
-    document.getElementById("valIt").value = It.toFixed(3);
-    document.getElementById("Req").value = Req.toFixed(3);
-
-    for(i=0; i<7; i++){
-        document.getElementsByName("valV")[i].value = (It * resistencias[i]).toFixed(3);
-    }
-
-    var x0=20, y0=20, d=10;
-
-    for(i=0; i<7; i++){
-        if(valor[i] =! 0){
-            var x4 = x0 + (i  * d);
-
-        }
-        else {
-            DibujarLinea("canvasSerie", x0 + (i) * d);
-            alert("HOLA")
-        }
-    }
-
-	if(interval)
-		clearInterval(interval);
-
-	interval = setInterval(function() {  CircuitoSerie("canvasSerie", 30, 50, 10, resistencias); }, 1);
-
 }
 
 /**
@@ -118,14 +115,15 @@ function CalcularParalelo() {
     var sel;
 
     for(i=0; i < 7; i++) {
-        valor[i] = document.getElementsByName("valR")[i].value;
-        if(valor[i] < 0 /*Agregar comprobacion solo numeros.*/){
-            alert("El valor de la resistencia " + i + " es invalido. Por favor verifique los datos.")
-        }else if (valor[i] >= 0){
+            valor[i] = document.getElementsByName("valR")[i].value;
+            if (valor[i] < 0 /*Agregar comprobacion solo numeros.*/) {
+                alert("El valor de la resistencia " + (i + 1) + " es invalido. Por favor verifique los datos.")
+                document.getElementsByName("valR")[i].value = "";
+            } else if (valor[i] >= 0) {
 
-        }else{
-            valor[i] = 0;
-        }
+            } else {
+                valor[i] = 0;
+            }
     }
     for(i=0; i<7; i++){
         sel = document.getElementsByName("multiploOhmR")[i];
@@ -153,38 +151,42 @@ function CalcularParalelo() {
     }
 //David: agrego calculo de rparalelo
     for(i=0; i<7; i++){
-        if(resistencias[i]!=0){
+        if(resistencias[i]>0){
             invReqParl += 1/resistencias[i];
         }
     }
 //David: agrego la inversa.
+    if(invReqParl>0)
     ReqParl = 1/invReqParl;
 
     fem = document.getElementById("valfem1").value;
 
-    if(ReqParl > 0) {
+    if(ReqParl > 0 && invReqParl>0) {
         It = fem / ReqParl;
+        document.getElementById("valIt").value = It.toFixed(3);
+        document.getElementById("Req").value = ReqParl.toFixed(3); //David: Agrego
+
+        //Agrego calculo de Corrientes:
+        for(i=0; i<7; i++){
+            if(resistencias[i]>0)
+                document.getElementsByName("valI")[i].value = (fem / resistencias[i]).toFixed(3);
+            else{
+                document.getElementsByName("valI")[i].value = "";
+            }
+        }
+        //Iniciamos con la animación en Canvas
+        if(interval)
+            clearInterval(interval);
+
+        for (var i = 1; i < 8; i++) {
+            xm[i-1] = 0;
+            ym[i-1] = 50;
+        }
+        //Modificamos el llamado de canvasParalelo aplicando un setInterval para la animación:
+        interval = setInterval(function() { CircuitoParalelo("canvasParalelo", 30, 50, 10, resistencias); }, 1);
     }else {
-        alert("Valor de resistencias invalidos.")
+        alert("Valor de resistencias invalidos.");
     }
-
-    document.getElementById("valIt").value = It.toFixed(3);
-    document.getElementById("Req").value = ReqParl.toFixed(3); //David: Agrego
-
-    //Agrego calculo de Corrientes:
-    for(i=0; i<7; i++){
-        document.getElementsByName("valI")[i].value = (fem / resistencias[i]).toFixed(3);
-    }
-
-	if(interval)
-		clearInterval(interval);
-		
-	for (var i = 1; i < 8; i++) {
-     	xm[i-1] = 0;
-		ym[i-1] = 50;
-    }
-	//Modificamos el llamado de canvasParalelo aplicando un setInterval para la animación:
-	interval = setInterval(function() { CircuitoParalelo("canvasParalelo", 30, 50, 10, resistencias); }, 1);
 }
 
 /**
@@ -516,7 +518,7 @@ function CircuitoParalelo(canv, x0, y0, d, resis) {
 
     var x = [], y = [];
     x[0] = x0;
-    y[0] = y0
+    y[0] = y0;
     for (var i = 1; i < 8; i++) {
         x[i] = x[i - 1] + (6 * d);
         y[i] = y[i - 1] + (6 * d);
