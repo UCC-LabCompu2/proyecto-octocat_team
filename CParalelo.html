@@ -77,10 +77,16 @@
                     <p id="femTitulo">fem</p>
                     <p><button id="buttonMas" onclick="CambiarVoltajeP(this.id)" >+</button></p>
                     <p><input type="number" id="valfem1" value="10" onchange="CalcularParalelo()">
-                    <button id="unidadV" ><span>[V]</span></button></p>
+                        <button id="unidadV" ><span>[V]</span></button></p>
                     <p><button id="buttonMenos" onclick="CambiarVoltajeP(this.id)" >-</button></p>
                     <p id="supra"><span>R<sub>eq</sub></span></p>
-                    <p><input type="number" id="Req" readonly><button id="unidadOhm">[Ω]</button></p>
+                    <p><input type="number" id="Req" readonly>
+                        <select name="multiploOhmReq" id="mOhmReq" onchange="CalcularParalelo()">
+                            <option value="mOhm">mΩ</option>
+                            <option value="Ohm" selected="selected">Ω</option>
+                            <option value="KOhm">KΩ</option>
+                            <option value="MOhm">MΩ</option>
+                        </select></p>
                 </div>
                 <div class="DivCorrientes">
                     <p><button>I<sub>T</sub></button><input type="number" id="valIt" disabled>[A]</p>
