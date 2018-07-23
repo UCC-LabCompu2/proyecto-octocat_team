@@ -21,6 +21,7 @@ function CalcularSerie() {
     var Req = 0;
     var It = 1;
     var sel;
+    var selReq;
 
     for(i=0; i < 7; i++) {
         valor[i] = document.getElementsByName("valR")[i].value;
@@ -65,14 +66,32 @@ function CalcularSerie() {
     }
 
     fem = document.getElementById("valfem1").value;
-
     if(Req > 0) {
         It = fem / Req;
         document.getElementById("valIt").value = It.toFixed(3);
-        document.getElementById("Req").value = Req.toFixed(3);
         for(i=0; i<7; i++){
             document.getElementsByName("valV")[i].value = (It * resistencias[i]).toFixed(3);
         }
+
+        selReq = document.getElementsByName("multiploOhmReq")[0];
+        switch(selReq.options[selReq.selectedIndex].value){
+            case "mOhm":
+                Req /= 0.001;
+                break;
+            case "Ohm":
+                Req /= 1;
+                break;
+            case "KOhm":
+                Req /= 1000;
+                break;
+            case "MOhm":
+                Req /= 1000000;
+                break;
+            default:
+                Req /= 1;
+                break;
+        }
+        document.getElementById("Req").value = Req.toFixed(3);
 
         var x0=20, y0=20, d=10;
 
@@ -94,6 +113,7 @@ function CalcularSerie() {
     }else {
         alert("Valor de resistencias invalidos.");
     }
+
 }
 
 /**
@@ -113,17 +133,18 @@ function CalcularParalelo() {
     var ReqParl = 0;    //Agregar
     var It = 1;
     var sel;
+    var selReq;
 
     for(i=0; i < 7; i++) {
-            valor[i] = document.getElementsByName("valR")[i].value;
-            if (valor[i] < 0 /*Agregar comprobacion solo numeros.*/) {
-                alert("El valor de la resistencia " + (i + 1) + " es invalido. Por favor verifique los datos.")
-                document.getElementsByName("valR")[i].value = "";
-            } else if (valor[i] >= 0) {
+        valor[i] = document.getElementsByName("valR")[i].value;
+        if (valor[i] < 0 /*Agregar comprobacion solo numeros.*/) {
+            alert("El valor de la resistencia " + (i + 1) + " es invalido. Por favor verifique los datos.")
+            document.getElementsByName("valR")[i].value = "";
+        } else if (valor[i] >= 0) {
 
-            } else {
-                valor[i] = 0;
-            }
+        } else {
+            valor[i] = 0;
+        }
     }
     for(i=0; i<7; i++){
         sel = document.getElementsByName("multiploOhmR")[i];
@@ -157,14 +178,13 @@ function CalcularParalelo() {
     }
 //David: agrego la inversa.
     if(invReqParl>0)
-    ReqParl = 1/invReqParl;
+        ReqParl = 1/invReqParl;
 
     fem = document.getElementById("valfem1").value;
 
     if(ReqParl > 0 && invReqParl>0) {
         It = fem / ReqParl;
         document.getElementById("valIt").value = It.toFixed(3);
-        document.getElementById("Req").value = ReqParl.toFixed(3); //David: Agrego
 
         //Agrego calculo de Corrientes:
         for(i=0; i<7; i++){
@@ -174,6 +194,27 @@ function CalcularParalelo() {
                 document.getElementsByName("valI")[i].value = "";
             }
         }
+
+        selReq = document.getElementsByName("multiploOhmReq")[0];
+        switch(selReq.options[selReq.selectedIndex].value){
+            case "mOhm":
+                ReqParl /= 0.001;
+                break;
+            case "Ohm":
+                ReqParl /= 1;
+                break;
+            case "KOhm":
+                ReqParl /= 1000;
+                break;
+            case "MOhm":
+                ReqParl /= 1000000;
+                break;
+            default:
+                ReqParl /= 1;
+                break;
+        }
+        document.getElementById("Req").value = ReqParl.toFixed(3);
+
         //Iniciamos con la animación en Canvas
         if(interval)
             clearInterval(interval);
@@ -480,21 +521,21 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
     DibujarLinea(canv, x[7] + 1*d, y[0], d, "v");
     DibujarLinea(canv, x[7] + 1*d, y[1], d, "v");
     DibujarLinea(canv, x[7] + 1*d, y[2], d, "v");
-	
-	//Agregamos ANIMACION de la fecla representando las corrientes:
-			if(xs < canvas.width-20 && ys == 50){
-				dibujarFlecha(xs, ys, 1, "canvasSerie");
-				xs++;
-			}else if(ys < canvas.height-60 && xs == canvas.width-20){
-				dibujarFlecha(xs, ys, 2, "canvasSerie");
-				ys++;
-			}else if(xs > 29 && ys == canvas.height-60){
-				dibujarFlecha(xs, ys, 3, "canvasSerie");
-				xs--;
-			}else if(ys > 10 && xs == 29){
-				dibujarFlecha(xs, ys, 4, "canvasSerie");
-				ys--;
-			}
+
+    //Agregamos ANIMACION de la fecla representando las corrientes:
+    if(xs < canvas.width-20 && ys == 50){
+        dibujarFlecha(xs, ys, 1, "canvasSerie");
+        xs++;
+    }else if(ys < canvas.height-60 && xs == canvas.width-20){
+        dibujarFlecha(xs, ys, 2, "canvasSerie");
+        ys++;
+    }else if(xs > 29 && ys == canvas.height-60){
+        dibujarFlecha(xs, ys, 3, "canvasSerie");
+        xs--;
+    }else if(ys > 10 && xs == 29){
+        dibujarFlecha(xs, ys, 4, "canvasSerie");
+        ys--;
+    }
 }
 
 /**
@@ -511,7 +552,7 @@ function CircuitoSerie(canv, x0, y0, d, resis) {
 function CircuitoParalelo(canv, x0, y0, d, resis) {
     let canvas = document.getElementById(canv);
     if (canvas.getContext) {
-		
+
         var ctx = canvas.getContext('2d');
         ctx.clearRect(0,0, canvas.width, canvas.height);
     }
@@ -523,43 +564,43 @@ function CircuitoParalelo(canv, x0, y0, d, resis) {
         x[i] = x[i - 1] + (6 * d);
         y[i] = y[i - 1] + (6 * d);
     }
-	
+
     var temp =0;
     for (var j = 7; j > 0; j--) {
-	
-        if(resis[j-1] != 0){
-			
-			if(xm[j-1] < x[7-temp]+9 && ym[j-1] == 50){
-				dibujarFlecha(xm[j-1], ym[j-1], 1, "canvasParalelo");
-				xm[j-1]++;
-			}else if(ym[j-1] < canvas.height-60 && xm[j-1] == x[7-temp]+9){
-				dibujarFlecha(xm[j-1], ym[j-1], 2, "canvasParalelo");
-				ym[j-1]++;
-			}else if(xm[j-1] > 29 && ym[j-1] == canvas.height-60){
-				dibujarFlecha(xm[j-1], ym[j-1], 3, "canvasParalelo");
-				xm[j-1]--;
-			}else if(ym[j-1] > 10 && xm[j-1] == 29){
-				dibujarFlecha(xm[j-1], ym[j-1], 4, "canvasParalelo");
-				ym[j-1]--;
-			}
 
-			DibujarLinea(canv, x[7-temp] + 1 * d, y[0], d, "v");
+        if(resis[j-1] != 0){
+
+            if(xm[j-1] < x[7-temp]+9 && ym[j-1] == 50){
+                dibujarFlecha(xm[j-1], ym[j-1], 1, "canvasParalelo");
+                xm[j-1]++;
+            }else if(ym[j-1] < canvas.height-60 && xm[j-1] == x[7-temp]+9){
+                dibujarFlecha(xm[j-1], ym[j-1], 2, "canvasParalelo");
+                ym[j-1]++;
+            }else if(xm[j-1] > 29 && ym[j-1] == canvas.height-60){
+                dibujarFlecha(xm[j-1], ym[j-1], 3, "canvasParalelo");
+                xm[j-1]--;
+            }else if(ym[j-1] > 10 && xm[j-1] == 29){
+                dibujarFlecha(xm[j-1], ym[j-1], 4, "canvasParalelo");
+                ym[j-1]--;
+            }
+
+            DibujarLinea(canv, x[7-temp] + 1 * d, y[0], d, "v");
             DibujarLinea(canv, x[7-temp] + 1 * d, y[2], d, "v");
             DibujarResistenciaParl(canv, x[6-temp], y[0], d);
             text(canv, x[6-temp] + d * 6, y[0] + d * 10, d, "R" + (j) );
             temp += 1;
-        
+
         }
 
-		DibujarLinea(canv, x[j-1], y[3], d, "h");
+        DibujarLinea(canv, x[j-1], y[3], d, "h");
         DibujarLinea(canv, x[j-1], y[0] - d, d, "h");
     }
 
     DibujarLinea(canv, x[0], y[0], d, "v");
     DibujarFem(canv, x[0], y[1], d);
     text(canv, x[0] - 2 * d, y[1] + d, d, "fem");
-    DibujarLinea(canv, x[0], y[2], d, "v");	
-	
+    DibujarLinea(canv, x[0], y[2], d, "v");
+
 }
 
 /**
@@ -570,7 +611,7 @@ function CircuitoParalelo(canv, x0, y0, d, resis) {
  */
 
 function Introhtml() {
-  self.location.href = 'Intro.html';
+    self.location.href = 'Intro.html';
 }
 function CSeriehtml() {
     self.location.href = 'CSerie.html';
@@ -600,18 +641,17 @@ function dibujarFlecha(x, y, r, chanvas) {
     ctx.strokeStyle = "red";
     ctx.fillStyle = "red";
 
-	if(r == 1){
-		ctx.arrow(x, y, x+20, y, [0, 2, -15, 2, -15, 8]);
-	}else if(r == 2){
-		ctx.arrow(x, y, x, y+20, [0, 2, 5, 2, 5, 8]);
-	}else if(r == 3){
-		ctx.arrow(x, y, x-20, y, [0, -2, -15, -2, -15, -8]);
-	}else if(r == 4){
-		ctx.arrow(x, y, x, y-20, [0, 2, -15, 2, -15, 8]);
-	}
+    if(r == 1){
+        ctx.arrow(x, y, x+20, y, [0, 2, -15, 2, -15, 8]);
+    }else if(r == 2){
+        ctx.arrow(x, y, x, y+20, [0, 2, 5, 2, 5, 8]);
+    }else if(r == 3){
+        ctx.arrow(x, y, x-20, y, [0, -2, -15, -2, -15, -8]);
+    }else if(r == 4){
+        ctx.arrow(x, y, x, y-20, [0, 2, -15, 2, -15, 8]);
+    }
 
     ctx.fill();
-	ctx.strokeStyle = "black";
+    ctx.strokeStyle = "black";
     ctx.fillStyle = "black";
 }
-
